@@ -1,0 +1,153 @@
+@font-face {
+    font-family: 'VisbyCF-Bold';
+    src: url('fonts/Fontspring-DEMO-visbycf-bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'VisbyCF-BoldOblique';
+    src: url('fonts/Fontspring-DEMO-visbycf-boldoblique.otf') format('opentype');
+    font-weight: bold;
+    font-style: oblique;
+}
+
+@font-face {
+    font-family: 'VisbyCF-DemiBold';
+    src: url('fonts/Fontspring-DEMO-visbycf-demibold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'VisbyCF-DemiBoldOblique';
+    src: url('fonts/Fontspring-DEMO-visbycf-demiboldoblique.otf') format('opentype');
+    font-weight: 600;
+    font-style: oblique;
+}
+
+@font-face {
+    font-family: 'VisbyCF-ExtraBoldOblique';
+    src: url('fonts/Fontspring-DEMO-visbycf-extraboldoblique.otf') format('opentype');
+    font-weight: 800;
+    font-style: oblique;
+}
+
+@font-face {
+    font-family: 'VisbyCF-Heavy';
+    src: url('fonts/Fontspring-DEMO-visbycf-heavy.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'VisbyCF-HeavyOblique';
+    src: url('fonts/Fontspring-DEMO-visbycf-heavyoblique.otf') format('opentype');
+    font-weight: 900;
+    font-style: oblique;
+}
+
+@font-face {
+    font-family: 'VisbyCF-Light';
+    src: url('fonts/Fontspring-DEMO-visbycf-light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'VisbyCF-LightOblique';
+    src: url('fonts/Fontspring-DEMO-visbycf-lightoblique.otf') format('opentype');
+    font-weight: 300;
+    font-style: oblique;
+}
+
+@font-face {
+    font-family: 'VisbyCF-Medium';
+    src: url('fonts/Fontspring-DEMO-visbycf-medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'VisbyCF-MediumOblique';
+    src: url('fonts/Fontspring-DEMO-visbycf-mediumoblique.otf') format('opentype');
+    font-weight: 500;
+    font-style: oblique;
+}
+
+@font-face {
+    font-family: 'VisbyCF-Regular';
+    src: url('fonts/Fontspring-DEMO-visbycf-regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'VisbyCF-RegularOblique';
+    src: url('fonts/Fontspring-DEMO-visbycf-regularoblique.otf') format('opentype');
+    font-weight: normal;
+    font-style: oblique;
+}
+
+@font-face {
+    font-family: 'VisbyCF-Thin';
+    src: url('fonts/Fontspring-DEMO-visbycf-thin.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'VisbyCF-ThinOblique';
+    src: url('fonts/Fontspring-DEMO-visbycf-thinoblique.otf') format('opentype');
+    font-weight: 100;
+    font-style: oblique;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    background-color: #141719;
+    color: #fff;
+    /* font-family: 'Visby CF';
+    font-weight: 600; */
+}
+
+h1{
+    font-family: 'VisbyCF-DemiBold', sans-serif;
+    font-size: 24px;
+    line-height: 28.8px;
+}
+
+h1 span{
+    color: #576CE0;
+}
+
+input:not(:last-of-type){
+    margin-bottom: 1rem;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+input:last-of-type{
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.input-bg-color{
+    background-color: #2B2E31;
+}
+
+button{
+    background-color: #42A5F5;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+p{
+    color: #C3C7CB;
+}
