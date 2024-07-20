@@ -27,7 +27,6 @@ jobs:
 
       - name: Build the Docker image for backend
         run: |
-          cd backend && \
           docker build -t ${{ env.IMAGE_NAME }} .
 
       - name: Push backend image to GitHub Container Registry
