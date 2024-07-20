@@ -1,8 +1,8 @@
-name: CI/CD Pipeline
+name: CI Pipeline
 
 on:
   push:
-    branches: [ "sabc-dev" ]
+    branches: [ "main" ]
 
 env:
   IMAGE_NAME: ghcr.io/kaeyros-analytics/event-registration:latest
