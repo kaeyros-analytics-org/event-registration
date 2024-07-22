@@ -1,0 +1,89 @@
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width">
+  <title></title>
+  <style></style>
+ </head>
+
+ <body style="font-family: 'Poppins', Arial, sans-serif">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+          <td align="center" style="padding: 20px;">
+              <table class="content" width="600" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: 1px solid #cccccc;">
+                  <!-- Header -->
+                  <tr>
+                      <td class="header" style="background-color: #141719; padding: 40px; text-align: center; color: white; font-size: 24px;">
+                        Nouvel enregistrement à l'évènement
+                      </td>
+                  </tr>
+
+                  <!-- Body -->
+                  <tr>
+                      <td class="body" style="padding: 40px; text-align: left; font-size: 16px; line-height: 1.6;">
+                      Bonjour, <br><br>
+                      Vous avez reçu une nouvel enregistrement à votre évènement de <strong><%= first_name %></strong>, veuillez consulter les informations reçu ci-dessous.
+                      <br><br>
+                      <table width="100%" border="1" style="border-collapse: collapse;">
+                        <tr align="left">
+                          <th>Champs</th>
+                          <th>Informations</th>
+                        </tr>
+                        <tr>
+                          <td>Noms</td>
+                          <td><%= first_name %></td>
+                        </tr>
+                        <tr>
+                          <td>Prenoms</td>
+                          <td><%= last_name %></td>
+                        </tr>
+                        <tr>
+                          <td>Entreprise</td>
+                          <td><%= company_name %></td>
+                        </tr>
+                        <tr>
+                          <td>Poste</td>
+                          <td><%= poste %></td>
+                        </tr>
+                        <tr>
+                          <td>Email</td>
+                          <td><%= email %></td>
+                        </tr>
+                        <tr>
+                          <td>Numero de telephone whatsapp</td>
+                          <td><%= phone_number_whatsapp %></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+
+                  <!-- Call to action Button -->
+                  <tr>
+                      <td style="padding: 0px 40px 0px 40px; text-align: center;">
+                          <!-- CTA Button -->
+                          <table cellspacing="0" cellpadding="0" style="margin: auto;">
+                              <tr>
+                                  <!-- <td align="center" style="background-color: #42A5F5; padding: 10px 20px; border-radius: 5px;">
+                                      <a href="#" target="_blank" style="color: #ffffff; text-decoration: none; font-weight: bold;">Voir le formulaire en ligne</a>
+                                  </td> -->
+                              </tr>
+                          </table>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="body" style="padding: 40px; text-align: left; font-size: 16px; line-height: 1.6;">
+                          <!-- Vous pouvez voir la liste des informations renseigner              -->
+                      </td>
+                  </tr>
+                  <!-- Footer -->
+                  <tr>
+                      <td class="footer" style="background-color: #141719; padding: 40px; text-align: center; color: white; font-size: 14px;">
+                      Copyright &copy; 2024 | Kaeyros Analytics
+                      </td>
+                  </tr>
+              </table>
+          </td>
+      </tr>
+  </table>
+</body>

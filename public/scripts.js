@@ -34,6 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
                   background: "linear-gradient(to right, #2B45D8, ##E9EFFF)",
                 }
               }).showToast();
+              elementForm.reset()
+                btnSubmit.innerText = 'Envoyer'
+              btnSubmit.setAttribute('disabled', 'false')
         })
         .catch((error) => {
             console.error('Error:', error);
@@ -44,6 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
                   background: "linear-gradient(90deg, rgba(207,25,62,1) 41%, rgba(255,195,195,1) 100%)",
                 }
               }).showToast();
+              btnSubmit.innerText = 'Envoyer'
+              btnSubmit.setAttribute('disabled', 'false')
         });
     })
 
