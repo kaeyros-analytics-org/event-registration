@@ -27,6 +27,14 @@ const eventSchema = new Schema<EventDoc>(
     phone_number_whatsapp: {
         type: String,
         required: true
+    },
+    latitude: {
+      type: String,
+      required: false
+    },
+    longitude: {
+        type: String,
+        required: false
     }
   },
   {

@@ -5,6 +5,8 @@ export type EventModel = {
     poste: string;
     email: string;
     phone_number_whatsapp: string;
+    latitude?: string;
+    longitude?: string;
   };
     
     // Interface Mongoose pour le modèle de Users

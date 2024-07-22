@@ -124,19 +124,19 @@ h1 span{
     color: #576CE0;
 }
 
-input:not(:last-of-type){
+input{
     margin-bottom: 1rem;
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
 }
 
-input:last-of-type{
+/* input:last-of-type{
     margin-bottom: 20px;
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
-}
+} */
 
 .input-bg-color{
     background-color: #2B2E31;
@@ -149,5 +149,10 @@ button{
 }
 
 p{
+    color: #C3C7CB;
+}
+
+span{
+    font-size: 16px;
     color: #C3C7CB;
 }

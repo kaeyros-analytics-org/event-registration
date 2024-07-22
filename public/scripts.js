@@ -1,9 +1,12 @@
+let latitude;
+let longitude;
 
 document.addEventListener('DOMContentLoaded', () => {
     const elementForm = document.getElementById('form-submit')
     const btnSubmit = document.getElementById('send-form')
+    const btnLocation = document.getElementById('localisation')
 
-    window.addEventListener('submit', (e) => {
+    elementForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
         btnSubmit.innerText = 'Chargement...'
@@ -15,6 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.forEach((value, key) => {
             values[key] = value
         })
+
+
+        if(btnLocation.checked){
+          values['latitude'] = latitude
+          values['longitude'] = longitude
+        }
+
+        // console.log('values =', values);
 
 
         fetch('/', {
@@ -50,6 +61,20 @@ document.addEventListener('DOMContentLoaded', () => {
               btnSubmit.innerText = 'Envoyer'
               btnSubmit.setAttribute('disabled', 'false')
         });
+    })
+
+    btnLocation.addEventListener('click', (e) => {
+      // console.log('btnLocation =', document.getElementById('localisation').checked);
+      if(btnLocation.checked){
+        navigator.geolocation.getCurrentPosition((position) => {
+            latitude = position.coords.latitude;
+            longitude = position.coords.longitude;
+  
+            console.log(JSON.stringify({ latitude, longitude }));
+            dataPosition = JSON.stringify({ latitude, longitude });
+  
+        });
+      }
     })
 
 })
