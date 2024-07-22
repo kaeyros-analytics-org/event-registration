@@ -29,7 +29,7 @@ class EventController {
             const emailSetting = await Email.find();
             if(emailSetting.length){
                 for(let itemEmail of emailSetting){
-                    // eventService.sendEmail(itemEmail.email, `Nouvel enregistrement à l'évènement - ${event.first_name}`, event)
+                    eventService.sendEmail(itemEmail.email, `Nouvel enregistrement à l'évènement - ${event.first_name}`, event)
                 }
             }
             res.status(201).send(event);
