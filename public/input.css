@@ -107,9 +107,27 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+    --bg-kaeyros-color: #14171900;
+    --text-global-kaeyros-color: #141719;
+    --text-primary-kaeyros-color: #0F2A96;
+    --bg-primary-kaeyros-color: #0F2A96;
+    --text-btn-kaeyros-color: #fff;
+    --bg-secondary-kaeyros-color: rgba(255, 94, 1, 0.7);
+    --text-secondary-kaeyros-color: #141719;
+
+    --bg-sema-color: #141719;
+    --text-global-sema-color: #fff;
+    --text-primary-sema-color: #576CE0;
+    --bg-primary-sema-color: #42A5F5;
+    --bg-secondary-sema-color: #2B2E31;
+    --text-btn-sema-color: #fff;
+    --text-secondary-sema-color: #C3C7CB;
+}
+
 body{
-    background-color: #141719;
-    color: #fff;
+    background-color: var(--bg-kaeyros-color);
+    color: var(--text-global-kaeyros-color);
     /* font-family: 'Visby CF';
     font-weight: 600; */
 }
@@ -121,7 +139,7 @@ h1{
 }
 
 h1 span{
-    color: #576CE0;
+    color: var(--text-primary-kaeyros-color);
 }
 
 input{
@@ -139,20 +157,31 @@ input{
 } */
 
 .input-bg-color{
-    background-color: #2B2E31;
+    /* background-color: var(--bg-secondary-kaeyros-color); */
+    border: 1px solid var(--bg-secondary-kaeyros-color);;
+}
+
+.input-bg-color::placeholder{
+    color: var(--text-global-kaeyros-color);
 }
 
 button{
-    background-color: #42A5F5;
+    background-color: var(--bg-primary-kaeyros-color);
     font-size: 16px;
     line-height: 20px;
+    color: var(--text-btn-kaeyros-color);
 }
 
 p{
-    color: #C3C7CB;
+    color: var(--text-secondary-kaeyros-color);
 }
 
-span{
+form span{
     font-size: 16px;
-    color: #C3C7CB;
+    color: var(--text-secondary-kaeyros-color);
+}
+
+.logo{
+    width: 30%;
+    height: auto;
 }
