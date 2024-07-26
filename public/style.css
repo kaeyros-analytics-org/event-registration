@@ -720,6 +720,10 @@ video {
   left: 50%;
 }
 
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
 .ml-2 {
   margin-left: 0.5rem;
 }
@@ -734,10 +738,6 @@ video {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.mb-4 {
-  margin-bottom: 1rem;
 }
 
 .flex {
@@ -879,8 +879,13 @@ h1{
   line-height: 28.8px;
 }
 
-h1 span{
+h2{
+  margin-top: 1rem;
+}
+
+h2 span{
   color: #576CE0;
+  font-weight: 600;
 }
 
 input{

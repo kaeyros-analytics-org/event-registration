@@ -114,15 +114,23 @@ body{
     font-weight: 600; */
 }
 
+
+
 h1{
     font-family: 'VisbyCF-DemiBold', sans-serif;
     font-size: 24px;
     line-height: 28.8px;
 }
 
-h1 span{
-    color: #576CE0;
+h2{
+    margin-top: 1rem;
 }
+
+h2 span{
+    color: #576CE0;
+    font-weight: 600;
+}
+
 
 input{
     margin-bottom: 1rem;

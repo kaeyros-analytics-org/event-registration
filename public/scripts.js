@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
               }).showToast();
               elementForm.reset()
                 btnSubmit.innerText = 'Envoyer'
-              btnSubmit.setAttribute('disabled', 'false')
+              btnSubmit.removeAttribute('disabled')
         })
         .catch((error) => {
             console.error('Error:', error);
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
               }).showToast();
               btnSubmit.innerText = 'Envoyer'
-              btnSubmit.setAttribute('disabled', 'false')
+              btnSubmit.removeAttribute('disabled')
         });
     })
 
