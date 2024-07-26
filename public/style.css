@@ -923,6 +923,16 @@ h2 span{
   font-weight: 600;
 }
 
+.flex-between{
+  display: flex;
+  justify-content: space-between;
+}
+
+td span.text-color{
+  color: var(--text-primary-kaeyros-color);
+  font-weight: 600;
+}
+
 .talks{
   text-align: center;
   font-family: 'Super-Comic', sans-serif;
