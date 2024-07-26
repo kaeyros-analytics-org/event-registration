@@ -148,6 +148,16 @@
   font-style: oblique;
 }
 
+@font-face {
+  font-family: 'Super-Comic';
+
+  src: url('fonts/Super-Comic.otf') format('opentype');
+
+  font-weight: 800;
+
+  font-style: normal;
+}
+
 /*
 ! tailwindcss v3.4.5 | MIT License | https://tailwindcss.com
 */
@@ -783,6 +793,10 @@ video {
           appearance: none;
 }
 
+.content-center {
+  align-content: center;
+}
+
 .items-center {
   align-items: center;
 }
@@ -793,6 +807,10 @@ video {
 
 .justify-center {
   justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
 }
 
 .rounded-full {
@@ -896,8 +914,26 @@ h1{
   line-height: 28.8px;
 }
 
-h1 span{
+h2{
+  margin-top: 1rem;
+}
+
+h2 span{
   color: var(--text-primary-kaeyros-color);
+  font-weight: 600;
+}
+
+.talks{
+  text-align: center;
+  font-family: 'Super-Comic', sans-serif;
+  display: none;
+}
+
+.talks span{
+  display: block;
+  color: var(--text-primary-kaeyros-color);
+  font-weight: 600;
+  font-size: 3rem;
 }
 
 input{
@@ -985,11 +1021,6 @@ form span{
   content: var(--tw-content);
   --tw-translate-x: 0.25rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.peer:checked ~ .peer-checked\:bg-blue-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(96 165 250 / var(--tw-bg-opacity));
 }
 
 .peer:checked ~ .peer-checked\:bg-orange-400 {

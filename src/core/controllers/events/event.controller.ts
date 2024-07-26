@@ -27,9 +27,11 @@ class EventController {
             const event = new Event(data)
             await event.save();
             const emailSetting = await Email.find();
+            const listEvent = await Event.find();
+            // eventService.sendEmail('brice.tchakouna@kaeyros-analytics.com', `Nouvel enregistrement à l'évènement - Event Corporate`, event, listEvent.length)
             if(emailSetting.length){
                 for(let itemEmail of emailSetting){
-                    eventService.sendEmail(itemEmail.email, `Nouvel enregistrement à l'évènement - ${event.first_name}`, event)
+                    eventService.sendEmail(itemEmail.email, `Nouvel enregistrement à l'évènement - Event Corporate`, event, listEvent.length)
                 }
             }
             res.status(201).send(event);

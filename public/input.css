@@ -103,6 +103,13 @@
     font-style: oblique;
 }
 
+@font-face {
+    font-family: 'Super-Comic';
+    src: url('fonts/Super-Comic.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -138,8 +145,26 @@ h1{
     line-height: 28.8px;
 }
 
-h1 span{
+h2{
+    margin-top: 1rem;
+}
+
+h2 span{
     color: var(--text-primary-kaeyros-color);
+    font-weight: 600;
+}
+
+.talks{
+    text-align: center;
+    font-family: 'Super-Comic', sans-serif;
+    display: none;
+}
+
+.talks span{
+    display: block;
+    color: var(--text-primary-kaeyros-color);
+    font-weight: 600;
+    font-size: 3rem;
 }
 
 input{

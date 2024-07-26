@@ -20,10 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
         })
 
 
-        if(btnLocation.checked){
-          values['latitude'] = latitude
-          values['longitude'] = longitude
-        }
+        // if(btnLocation.checked){
+        //   values['latitude'] = latitude
+        //   values['longitude'] = longitude
+        // }
 
         // console.log('values =', values);
 
@@ -46,8 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
               }).showToast();
               elementForm.reset()
-                btnSubmit.innerText = 'Envoyer'
-              btnSubmit.setAttribute('disabled', 'false')
+              btnSubmit.innerText = 'Envoyer'
+              btnSubmit.removeAttribute('disabled')
         })
         .catch((error) => {
             console.error('Error:', error);
@@ -59,22 +59,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
               }).showToast();
               btnSubmit.innerText = 'Envoyer'
-              btnSubmit.setAttribute('disabled', 'false')
+              btnSubmit.removeAttribute('disabled')
         });
     })
 
-    btnLocation.addEventListener('click', (e) => {
-      // console.log('btnLocation =', document.getElementById('localisation').checked);
-      if(btnLocation.checked){
-        navigator.geolocation.getCurrentPosition((position) => {
-            latitude = position.coords.latitude;
-            longitude = position.coords.longitude;
+    // btnLocation.addEventListener('click', (e) => {
+    //   // console.log('btnLocation =', document.getElementById('localisation').checked);
+    //   if(btnLocation.checked){
+    //     navigator.geolocation.getCurrentPosition((position) => {
+    //         latitude = position.coords.latitude;
+    //         longitude = position.coords.longitude;
   
-            console.log(JSON.stringify({ latitude, longitude }));
-            dataPosition = JSON.stringify({ latitude, longitude });
+    //         console.log(JSON.stringify({ latitude, longitude }));
+    //         dataPosition = JSON.stringify({ latitude, longitude });
   
-        });
-      }
-    })
+    //     });
+    //   }
+    // })
 
 })

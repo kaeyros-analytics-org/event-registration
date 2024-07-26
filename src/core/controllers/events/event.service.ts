@@ -5,7 +5,7 @@ import { EventModel } from '../../models/events.models';
 
 class EventService{
 
-    async sendEmail(to: string, subject: string, data: EventModel ){
+    async sendEmail(to: string, subject: string, data: EventModel, nb_participant: number ){
         const hostSTMP = process.env.EMAIL_HOST;
         const STMPport = process.env.EMAIL_PORT || 465;
         const STMPsecure = process.env.EMAIL_IS_SECURE || false;
@@ -14,7 +14,17 @@ class EventService{
         
         console.log('secure ==', Boolean(STMPsecure));
 
-        const html= await ejs.renderFile(path.join(__dirname,`../../../../views/emails/event.ejs`), data);
+        const dataEmail = {
+            first_name: data.first_name,
+            last_name: data.last_name,
+            company_name: data.company_name,
+            poste: data.poste,
+            email: data.email,
+            phone_number_whatsapp: data.phone_number_whatsapp,
+            nb_participant: nb_participant
+        }
+
+        const html= await ejs.renderFile(path.join(__dirname,`../../../../views/emails/event.ejs`), dataEmail);
         
         // Create transporter object using SMTP transport
         let transporter = nodemailer.createTransport({
