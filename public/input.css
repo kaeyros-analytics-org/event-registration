@@ -131,6 +131,19 @@ h2 span{
     font-weight: 600;
 }
 
+.flex-between{
+    display: flex;
+    justify-content: space-between;
+}
+
+td span{
+    color: #fff;
+}
+
+td span.text-color{
+    color: #C3C7CB;
+    font-weight: 600;
+}
 
 input{
     margin-bottom: 1rem;
