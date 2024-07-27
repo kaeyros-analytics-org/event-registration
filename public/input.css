@@ -145,11 +145,15 @@ td span.text-color{
     font-weight: 600;
 }
 
-input{
+input, select{
     margin-bottom: 1rem;
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
+}
+
+select{
+    color: #C3C7CB;
 }
 
 /* input:last-of-type{

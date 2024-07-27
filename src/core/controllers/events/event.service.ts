@@ -21,6 +21,7 @@ class EventService{
             poste: data.poste,
             email: data.email,
             phone_number_whatsapp: data.phone_number_whatsapp,
+            creneau: data.creneau,
             nb_participant: nb_participant
         }
 

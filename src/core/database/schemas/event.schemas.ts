@@ -28,6 +28,10 @@ const eventSchema = new Schema<EventDoc>(
         type: String,
         required: true
     },
+    creneau: {
+      type: String,
+      required: true
+    },
     latitude: {
       type: String,
       required: false

@@ -5,6 +5,7 @@ export type EventModel = {
     poste: string;
     email: string;
     phone_number_whatsapp: string;
+    creneau: string;
     latitude?: string;
     longitude?: string;
   };

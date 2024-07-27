@@ -23,7 +23,7 @@
                   <tr>
                       <td class="body" style="padding: 40px; text-align: left; font-size: 16px; line-height: 1.6;">
                       Bonjour, <br><br>
-                      Vous avez reçu une nouvel enregistrement à votre évènement Event SMB venant de <strong><%= first_name %></strong>, il s'agit du participant N° <strong><%= nb_participant %></strong> veuillez consulter les informations reçu ci-dessous.
+                      Vous avez reçu une nouvel enregistrement à votre évènement Event SMB venant de <strong><%= first_name %></strong>, il s'agit du participant N° <strong><%= nb_participant %></strong>, veuillez consulter les informations reçu ci-dessous.
                       <br><br>
                       <table width="100%" border="1" style="border-collapse: collapse;">
                         <tr align="left">
@@ -51,8 +51,12 @@
                           <td><%= email %></td>
                         </tr>
                         <tr>
-                          <td>Numero de telephone whatsapp</td>
+                          <td>Numero de téléphone whatsapp</td>
                           <td><%= phone_number_whatsapp %></td>
+                        </tr>
+                        <tr>
+                          <td>Créneau (Heure)</td>
+                          <td><%= creneau %></td>
                         </tr>
                       </table>
                     </td>

@@ -720,6 +720,10 @@ video {
   left: 50%;
 }
 
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -746,6 +750,10 @@ video {
 
 .table {
   display: table;
+}
+
+.hidden {
+  display: none;
 }
 
 .h-10 {
@@ -902,11 +910,15 @@ td span.text-color{
   font-weight: 600;
 }
 
-input{
+input, select{
   margin-bottom: 1rem;
   font-weight: 400;
   font-size: 12px;
   line-height: 18px;
+}
+
+select{
+  color: #C3C7CB;
 }
 
 /* input:last-of-type{
