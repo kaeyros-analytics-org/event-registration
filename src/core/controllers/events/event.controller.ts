@@ -7,7 +7,10 @@ import Email from "../../database/schemas/emails.schemas";
 class EventController {
 
     get(req: Request, res: Response, next: NextFunction){
-        res.render(`./pages/index`)
+        const { promotion } = req.query
+        console.log(promotion)
+        // res.send(req.query)
+        res.render(`./pages/index`, {promotion: promotion =='true'? 'true': 'false'})
     }
 
     async email(req: Request, res: Response, next: NextFunction){
@@ -24,6 +27,7 @@ class EventController {
     async create(req: Request, res: Response, next: NextFunction){
         try{
             const data = req.body
+            data.is_promotion = data.is_promotion =='true'? true: false
             // return res.status(200).json(data)
             const event = new Event(data)
             await event.save();

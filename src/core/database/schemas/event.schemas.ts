@@ -28,6 +28,11 @@ const eventSchema = new Schema<EventDoc>(
         type: String,
         required: true
     },
+    is_promotion: {
+      type: Boolean,
+      required: false,
+      default: false
+  },
     creneau: {
       type: String,
       required: true

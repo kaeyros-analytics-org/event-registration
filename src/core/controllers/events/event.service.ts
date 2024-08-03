@@ -22,7 +22,8 @@ class EventService{
             email: data.email,
             phone_number_whatsapp: data.phone_number_whatsapp,
             creneau: data.creneau,
-            nb_participant: nb_participant
+            nb_participant: nb_participant,
+            is_promotion: data.is_promotion ? 'Oui': 'Non'
         }
 
         const html= await ejs.renderFile(path.join(__dirname,`../../../../views/emails/event.ejs`), dataEmail);
