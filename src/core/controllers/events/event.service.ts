@@ -18,6 +18,8 @@ class EventService{
             first_name: data.first_name,
             last_name: data.last_name,
             company_name: data.company_name,
+            sector_of_activity: data.sector_of_activity,
+            district: data.district,
             poste: data.poste,
             email: data.email,
             phone_number_whatsapp: data.phone_number_whatsapp,

@@ -24,6 +24,14 @@ const eventSchema = new Schema<EventDoc>(
       type: String,
       required: true
     },
+    sector_of_activity: {
+      type: String,
+      required: true
+    },
+    district: {
+      type: String,
+      required: true
+    },
     phone_number_whatsapp: {
         type: String,
         required: true
