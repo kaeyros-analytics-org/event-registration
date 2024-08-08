@@ -4,7 +4,7 @@ export type EmailModel = {
   };
     
     // Interface Mongoose pour le modèle de Users
-  export interface EventDoc extends Document, EmailModel {
+  export interface EmailDoc extends Document, EmailModel {
     createdAt: Date;
     updatedAt: Date;
   }

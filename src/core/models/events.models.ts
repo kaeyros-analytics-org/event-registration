@@ -5,7 +5,7 @@ export type EventModel = {
     sector_of_activity: string;
     district: string;
     poste: string;
-    email: string;
+    email?: string;
     phone_number_whatsapp: string;
     is_promotion: boolean;
     creneau: string;

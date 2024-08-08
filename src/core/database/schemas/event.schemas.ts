@@ -22,7 +22,7 @@ const eventSchema = new Schema<EventDoc>(
     },
     email: {
       type: String,
-      required: true
+      required: false
     },
     sector_of_activity: {
       type: String,

@@ -21,7 +21,7 @@ class EventService{
             sector_of_activity: data.sector_of_activity,
             district: data.district,
             poste: data.poste,
-            email: data.email,
+            email: data?.email ?? '',
             phone_number_whatsapp: data.phone_number_whatsapp,
             creneau: data.creneau,
             nb_participant: nb_participant,

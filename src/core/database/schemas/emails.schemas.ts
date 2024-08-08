@@ -1,8 +1,8 @@
 
 import mongoose, { Schema } from "mongoose";
-import { EventDoc } from "../../models/events.models";
+import { EmailDoc } from "../../models/emails.models";
 
-const emailSchema = new Schema<EventDoc>(
+const emailSchema = new Schema<EmailDoc>(
   {
     first_name: {
       type: String,
@@ -18,6 +18,6 @@ const emailSchema = new Schema<EventDoc>(
   }
 );
 
-const Email = mongoose.model<EventDoc>('emails', emailSchema);
+const Email = mongoose.model<EmailDoc>('emails', emailSchema);
 
 export default Email;
