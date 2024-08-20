@@ -15,6 +15,7 @@ router.post('/emails/create', (req: Request, res: Response, next: NextFunction) 
 router.delete('/emails/delete/:id', (req: Request, res: Response, next: NextFunction) => emailController.delete(req, res, next));
 router.get('/email', (req: Request, res: Response, next: NextFunction) => eventController.email(req, res, next));
 router.get('/events/list', (req: Request, res: Response, next: NextFunction) => eventController.list(req, res, next));
+router.get('/events/list/download', (req: Request, res: Response, next: NextFunction) => eventController.download(req, res, next));
 router.post('/', (req: Request, res: Response, next: NextFunction) => eventController.create(req, res, next));
 
 export default router;

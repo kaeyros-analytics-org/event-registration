@@ -1,7 +1,11 @@
 import nodemailer from 'nodemailer';
 import ejs from 'ejs';
 import path from 'path';
-import { EventModel } from '../../models/events.models';
+import { EventDoc, EventModel } from '../../models/events.models';
+import Event from '../../database/schemas/event.schemas';
+import XLSX from 'xlsx';
+import { NextFunction, Request, Response } from 'express';
+
 
 class EventService{
 
@@ -25,7 +29,8 @@ class EventService{
             phone_number_whatsapp: data.phone_number_whatsapp,
             creneau: data.creneau,
             nb_participant: nb_participant,
-            is_promotion: data.is_promotion ? 'Oui': 'Non'
+            is_promotion: data.is_promotion ? 'Oui': 'Non',
+            collaborate_name: data.collaborate_name
         }
 
         const html= await ejs.renderFile(path.join(__dirname,`../../../../views/emails/event.ejs`), dataEmail);
@@ -64,6 +69,51 @@ class EventService{
             console.log('error for send mail', error);
             return false;
             // res.status(500).send({ message: 'Error sending email', error: error });
+        }
+    }
+
+    async downloadDataExcel(req: Request, res: Response, next: NextFunction): Promise<any>
+    {
+        try {
+            const event = await Event.find();
+
+            const data = event.map(item => {
+                return {
+                    first_name: item.first_name,
+                    last_name: item.last_name,
+                    company_name: item.company_name,
+                    poste: item.poste,
+                    email: item.email,
+                    sector_of_activity: item.sector_of_activity,
+                    district: item.district,
+                    phone_number_whatsapp: item.phone_number_whatsapp,
+                    is_promotion: item.is_promotion ? 'true': 'false',
+                    creneau: item.creneau,
+                    latitude: item.latitude,
+                    longitude: item.longitude
+                }
+            })
+
+            // Créer un nouveau classeur
+            const workbook = XLSX.utils.book_new();
+
+            // Convertir les données en feuille de calcul
+            const worksheet = XLSX.utils.json_to_sheet(data);
+
+            // Ajouter la feuille de calcul au classeur
+            XLSX.utils.book_append_sheet(workbook, worksheet, 'event');
+
+            // Générer un fichier Excel en mémoire
+            const excelBuffer = XLSX.write(workbook, { type: 'buffer', bookType: 'xlsx' });
+
+            // Définir les en-têtes HTTP pour télécharger le fichier
+            res.setHeader('Content-Disposition', 'attachment; filename="data.xlsx"');
+            res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+
+            // Envoyer le fichier Excel au client
+            res.send(excelBuffer);
+        } catch (error) {
+            console.error(`Erreur lors du telechargement des datas ${error}`)
         }
     }
 }

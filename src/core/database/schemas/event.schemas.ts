@@ -32,6 +32,11 @@ const eventSchema = new Schema<EventDoc>(
       type: String,
       required: true
     },
+    collaborate_name: {
+      type: String,
+      required: true,
+      default: ''
+    },
     phone_number_whatsapp: {
         type: String,
         required: true

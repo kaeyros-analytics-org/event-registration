@@ -8,6 +8,7 @@ export type EventModel = {
     email?: string;
     phone_number_whatsapp: string;
     is_promotion: boolean;
+    collaborate_name: string;
     creneau: string;
     latitude?: string;
     longitude?: string;
