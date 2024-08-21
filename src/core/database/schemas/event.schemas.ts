@@ -34,7 +34,7 @@ const eventSchema = new Schema<EventDoc>(
     },
     collaborate_name: {
       type: String,
-      required: true,
+      required: false,
       default: ''
     },
     phone_number_whatsapp: {
