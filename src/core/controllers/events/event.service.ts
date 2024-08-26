@@ -90,7 +90,8 @@ class EventService{
                     is_promotion: item.is_promotion ? 'true': 'false',
                     creneau: item.creneau,
                     latitude: item.latitude,
-                    longitude: item.longitude
+                    longitude: item.longitude,
+                    collaborate_name: item.collaborate_name
                 }
             })
 
