@@ -13,11 +13,11 @@ const eventSchema = new Schema<EventDoc>(
     },
     promoter_name: {
       type: String,
-      required: false,
+      required: true,
     },
     opening_time: {
       type: String,
-      required: false,
+      required: true,
       default: "",
     },
     phone_number_whatsapp: {
