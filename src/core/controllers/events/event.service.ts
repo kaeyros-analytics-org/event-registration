@@ -30,6 +30,7 @@ class EventService {
       location: data.location,
       latitude: data.latitude,
       longitude: data.longitude,
+      nb_participant: nb_participant
     };
 
     const html = await ejs.renderFile(
