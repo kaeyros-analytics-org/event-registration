@@ -38,10 +38,10 @@ class EventController {
             await event.save();
             const emailSetting = await Email.find();
             const listEvent = await Event.find();
-            // eventService.sendEmail('brice.tchakouna@kaeyros-analytics.com', `Nouvel enregistrement à l'évènement - Event SMB`, event, listEvent.length)
+            // eventService.sendEmail('brice.tchakouna@kaeyros-analytics.com', `Nouvel enregistrement à l'évènement - Event`, event, listEvent.length)
             if(emailSetting.length){
                 for(let itemEmail of emailSetting){
-                    eventService.sendEmail(itemEmail.email, `Nouvel enregistrement à l'évènement - Event SMB`, event, listEvent.length)
+                    eventService.sendEmail(itemEmail.email, `Nouvel enregistrement à l'évènement - Event`, event, listEvent.length)
                 }
             }
             res.status(201).send(event);
