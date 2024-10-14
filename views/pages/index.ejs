@@ -13,33 +13,27 @@
     <div class="flex justify-center items-center min-h-svh">
         <div class="py-10 md:px-20 px-4 lg:w-3/5 xl:w-2/5 md:mx-auto">
             <img src="logo.svg" alt="logo event"> 
-            <h1 class="pt-6">Gagnez de nouveaux clients avec WhatsApp</h1> </br>
-            <% if (collaborate_name) { %> <h2 class="text-color ml-4">En collaboration avec <span class="text-promotion"><%= collaborate_name %></span></h2> <% } %>
+            <h1 class="pt-6">Enregistrement pour l évent</h1> </br>
             <table width="100%" style="margin-top: 1rem;" >
                 <tr align="left">
-                  <td ><span class="text-color ml-4">Mardi, 10 Septembre 2024 à 10 Heures</span></td>
+                  <td ><span class="text-color ml-4">Samedi, 26 Octobre 2024</span></td>
+                </tr>
+                <tr align="left">
+                  <td ><span class="text-color ml-4">à 09 Heures</span></td>
                 </tr>
                 <tr>
-                  <td ><span class="text-color ml-4">Serena Hôtel, Douala - Cameroun</span></td>
+                  <td ><span class="text-color ml-4">Avenue du 27 Août Tsinga, Yaoundé (Face ancien GT Labo)</span></td>
                 </tr>
               </table>
             
             <form action="#" method="post" class="mt-6" id="form-submit">
-                <input type="text" name="is_promotion" value="<%= promotion %>" hidden>
-                <input type="text" name="collaborate_name" value="<%= collaborate_name %>" hidden>
-                <input type="text" name="first_name" class="w-full py-4 md:py-6 px-10 rounded-full input-bg-color" placeholder="Nom *" required>
-                <input type="text" name="last_name" class="w-full py-4 md:py-6 px-10 rounded-full input-bg-color" placeholder="Prénom *" required>
-                <input type="text" name="company_name" class="w-full py-4 md:py-6 px-10 rounded-full input-bg-color" placeholder="Nom de l'entreprise *" required>
-                <input type="text" name="sector_of_activity" class="w-full py-4 md:py-6 px-10 rounded-full input-bg-color" placeholder="Secteur d’activité *" required>
-                <input type="text" name="district" class="w-full py-4 md:py-6 px-10 rounded-full input-bg-color" placeholder="Quartier *" required>
-                <input type="text" name="poste" class="w-full py-4 md:py-6 px-10 rounded-full input-bg-color" placeholder="Poste *" required>
-                <input type="email" name="email" class="w-full py-4 md:py-6 px-10 rounded-full input-bg-color" placeholder="E-mail (Professionnel)">
+                <!-- <input type="text" name="is_promotion" value="<%= promotion %>" hidden> -->
+                <input type="text" name="company_name" class="w-full py-4 md:py-6 px-10 rounded-full input-bg-color" placeholder="Nom de l'etablissement *" required>
+                <input type="text" name="type_of_business" class="w-full py-4 md:py-6 px-10 rounded-full input-bg-color" placeholder="Type de business *" required>
+                <input type="text" name="promoter_name" class="w-full py-4 md:py-6 px-10 rounded-full input-bg-color" placeholder="Nom du promoteur *" required>
+                <input type="time" name="opening_time" class="w-full py-4 md:py-6 px-10 rounded-full input-bg-color" placeholder="Heure d'ouverture *" required>
                 <input type="text" name="phone_number_whatsapp" class="w-full py-4 md:py-6 px-10 rounded-full input-bg-color" placeholder="Numéro de téléphone (WhatsApp) *" required>
-                <select name="creneau" id="creneau" class="w-full py-4 md:py-6 px-10 rounded-full input-bg-color mb-2" required>
-                    <option disabled value="" selected hidden>Choisir une plage horaire *</option>
-                    <option value="09h">09h</option>
-                    <option value="16h">16h</option>
-                </select>
+                <input type="text" name="location" class="w-full py-4 md:py-6 px-10 rounded-full input-bg-color" placeholder="Lieu *">
                 <label class="relative flex justify-start items-center group py-2 text-xl mb-4">
                     <input type="checkbox" class="absolute left-1/2 -translate-x-1/2 w-full h-full peer appearance-none rounded-md" id="localisation"/>
                     <span class="w-16 h-10 flex items-center flex-shrink-0 ml-4 p-1 bg-gray-300 rounded-full duration-300 ease-in-out peer-checked:bg-blue-400 after:w-8 after:h-8 after:bg-white after:rounded-full after:shadow-md after:duration-300 peer-checked:after:translate-x-6 group-hover:after:translate-x-1"></span>
