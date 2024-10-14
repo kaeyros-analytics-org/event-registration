@@ -31,7 +31,7 @@ class EventController {
             const data = req.body
             console.log('data ==', data);
             
-            data.is_promotion = data.is_promotion =='true'? true: false
+            // data.is_promotion = data.is_promotion =='true'? true: false
             // data.collaborate_name = data.collaborate_name == undefined? '': false
             // return res.status(200).json(data)
             const event = new Event(data)
