@@ -19,6 +19,19 @@ document.addEventListener('DOMContentLoaded', () => {
             values[key] = value
         })
 
+        if(!btnLocation.checked || !latitude || !longitude){
+          Toastify({
+            text: "Veuillez activer la localisation.",
+            className: "info",
+            style: {
+              background: "linear-gradient(90deg, rgba(207,25,62,1) 41%, rgba(255,195,195,1) 100%)",
+            }
+          }).showToast();
+          btnSubmit.innerText = 'Envoyer'
+          btnSubmit.removeAttribute('disabled')
+          return;
+        }
+
 
         if(btnLocation.checked){
           values['latitude'] = latitude
