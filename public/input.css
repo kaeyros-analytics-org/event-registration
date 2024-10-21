@@ -179,6 +179,10 @@ input, select{
     line-height: 18px;
 }
 
+select + div {
+    margin-bottom: 1rem; 
+}
+
 select{
     color: #C3C7CB;
 }

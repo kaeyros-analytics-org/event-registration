@@ -36,8 +36,8 @@ if (!fs.existsSync(publicDir)) {
 
 // app.get('/', (req: Request, res: Response) => {console.log('App start xx');return res.send('App startx')});
 
-app.use('/', router);
 app.use(express.static(publicDir));
+app.use('/', router);
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
