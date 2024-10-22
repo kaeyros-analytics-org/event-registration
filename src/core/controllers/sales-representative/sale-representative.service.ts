@@ -11,7 +11,7 @@ import { helpers } from "../../../utils/helpers";
 
 class SalesRepresentativeService {
 
-    async create(data: SalesRepresentativeModel): Promise<{status: number, message: any}>
+    async create(data: SalesRepresentativeModel, hostname: string|undefined): Promise<{status: number, message: any}>
     {
         try {
 
@@ -22,11 +22,13 @@ class SalesRepresentativeService {
                 name: data.name,
                 code: code,
             }
+            const ExistName = await SalesRepresentative.find({name: dataSale.name})
+            if(ExistName.length > 0) return {status: 400, message: "Name Already Exist"}
             const saleData = await SalesRepresentative.create(dataSale)
             const newSaleData = saleData.toObject();
             const dataWithLink = {
                 ...newSaleData,
-                link: `${helpers.getBaseUrl()}/${saleData.code}`
+                link: hostname ?`https://${hostname}/${saleData.code}`: `${helpers.getBaseUrl()}/${saleData.code}`
             }
             return {status: 201, message: dataWithLink}
             

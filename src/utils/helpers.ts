@@ -1,4 +1,5 @@
 import path from "path"
+import os from "os";
 
 class Helpers{
 
@@ -17,7 +18,8 @@ class Helpers{
     }
 
     getBaseUrl() {
-        return 'http://event-registration.kaeyros.online'
+        const hostname = os.hostname();
+        return `https://${hostname}`
     }
 }
 

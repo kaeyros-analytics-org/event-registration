@@ -22,7 +22,9 @@ class SalesRepresentativeController {
             const data = req.body
             console.log('data ==', data);
 
-            const event = await salesRepresentativeService.create(data)
+            const hostname = req.headers.host;
+
+            const event = await salesRepresentativeService.create(data, hostname)
             res.status(event.status).send(event.message);
         }
         catch(error){
