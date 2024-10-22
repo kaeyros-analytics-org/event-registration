@@ -41,6 +41,10 @@ const SalesFormSchema = new Schema<SalesFormDoc>(
       type: String,
       required: true,
     },
+    customer_decision: {
+      type: String,
+      required: true,
+    },
     longitude: {
       type: String,
       required: false,

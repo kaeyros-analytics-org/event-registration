@@ -172,15 +172,15 @@ td span.text-color{
     font-weight: 600;
 }
 
-input, select{
-    margin-bottom: 1rem;
+input, select, textarea{
+    margin-top: 1rem;
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
 }
 
 select + div {
-    margin-bottom: 1rem; 
+    margin-top: 1rem; 
 }
 
 select{

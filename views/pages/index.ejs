@@ -30,7 +30,7 @@
                 </tr>
               </table>
             
-            <form action="#" method="post" class="mt-6" id="form-submit">
+            <form action="#" method="post" class="mt-4" id="form-submit">
                 <input type="text" name="sale_representative_code" value="<%= sale_representative_code %>" hidden>
                 <input type="text" name="sale_representative_id" value="<%= sale_representative_id %>" hidden>
                 <div class="relative flex w-full items-center">
@@ -42,6 +42,7 @@
                   <option value="hotel">Hôtel</option>
                   <option value="boutique">Boutique</option>
                   <option value="salon de beauté">Salon de beauté</option>
+                  <option value="autre">Autre</option>
                  </select>
 
                   <!-- Flèche personnalisée -->
@@ -83,9 +84,28 @@
                  <input type="text" name="neighborhood" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3.5 px-10 rounded-lg input-bg-color" placeholder="Quartier *" required>
                 <input type="text" name="pos_name" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3.5 px-10 rounded-lg input-bg-color" placeholder="Nom du point de vente *" required>
                 <input type="text" name="owner_name" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3.5 px-10 rounded-lg input-bg-color" placeholder="Nom du Propriétaire " >
-                <input type="text" name="owner_phone_number" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3.5 px-10 rounded-lg input-bg-color" placeholder="Numéro de téléphone du contact (WhatsApp) *"
-                inputmode="numeric" 
-                pattern="[0-9]*" required>
+                <input type="tel" name="owner_phone_number" id="phone" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3.5 px-10 rounded-lg input-bg-color" placeholder="Numéro de téléphone du contact (WhatsApp) *"
+                pattern="^(\237|00237)?[26]\d{8}$" required>
+                <small class="text-red-300 dark:text-red-500 hidden" id="phone-error">Entrez un numéro valide (avec ou sans indicatif : +237 ou 00237).</small>
+
+                <div class="relative flex w-full items-center">
+                  <select name="customer_decision" id="customer_decision" class="custom-select  dark:bg-[#E6E8EB] dark:text-[#2B2E31] w-full py-3 md:py-3.5 px-10 rounded-lg input-bg-color appearance-none">
+                    <option disabled value="" selected hidden>Choisir la decision du client *</option>
+                    <option value="Pas interessé">Pas interessé</option>
+                    <option value="Interessé">Interessé</option>
+                    <option value="Vente">Vente</option>
+                   </select>
+ 
+                   <!-- Flèche personnalisée placée à droite -->
+                   <div class="arrow-icon pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 dark:text-gray-800 text-gray-100"">
+                    <svg class="w-5 h-5 down-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                    <svg class="w-5 h-5 up-arrow hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                    </svg>
+                  </div>
+                 </div>
                
                  <div class="relative flex w-full items-center">
                   <select name="prospecting_type" id="prospecting_type" class="custom-select  dark:bg-[#E6E8EB] dark:text-[#2B2E31] w-full py-3 md:py-3.5 px-10 rounded-lg input-bg-color appearance-none">
@@ -105,7 +125,7 @@
                   </div>
                  </div>
                 <textarea name="visit_note" id="visit_note" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-10 md:py-10 px-10 rounded-lg mb-2 input-bg-color" placeholder="Notes de visite *" required></textarea>
-                  <label class="relative flex justify-start items-center group py-2 text-xl mb-4">
+                  <label class="relative flex justify-start items-center group py-2 text-xl mb-4" id="switch-localisation" style="display: none;">
                     <input type="checkbox" class="absolute left-1/2 -translate-x-1/2 w-full h-full peer appearance-none rounded-md" id="localisation" required/>
                     <span class="w-16 h-10 flex items-center flex-shrink-0 ml-0 p-1 bg-white dark:bg-gray-300 rounded-full duration-300 ease-in-out peer-checked:bg-blue-400 after:w-8 after:h-8 after:bg-[#333652] after:rounded-full after:shadow-md after:duration-300 peer-checked:after:translate-x-6 group-hover:after:translate-x-1"></span>
                     <span class="ml-2 dark:text-[#2B2E31]">Récupérer ma localisation</span>

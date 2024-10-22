@@ -68,12 +68,13 @@ class SalesFormService {
         next: NextFunction
       ): Promise<any> {
         try {
-          const saleFormData = await SalesForm.find({});
+          const saleFormData = await SalesForm.find({}).populate('sale_representative_id');
     
-          const data = saleFormData.map((item) => {
+          const data = saleFormData.map((item: any) => {
             return {
-                "Id du representant": item.sale_representative_id,
+                "Id du representant": item.sale_representative_id.id,
                 "Code du representant": item.sale_representative_code,
+                "Nom du representant": item.sale_representative_id.name,
                 "Type de point de vente": item.type_of_outlet,
                 "Ville": item.city,
                 "Quartier": item.neighborhood,
@@ -82,6 +83,7 @@ class SalesFormService {
                 "Numéro de téléphone du propriétaire": item.owner_phone_number,
                 "Notes de visite": item.visit_note,
                 "Type de prospection": item.prospecting_type,
+                "Decision du client": item.customer_decision,
                 latitude: item.latitude,
                 longitude: item.longitude,
             };

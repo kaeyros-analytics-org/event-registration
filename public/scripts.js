@@ -6,9 +6,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnSubmit = document.getElementById('send-form')
     const btnLocation = document.getElementById('localisation')
     const typeProspecting = document.getElementById('prospecting_type')
+    const errorPhoneNumber = document.getElementById('phone-error')
+
 
     elementForm.addEventListener('submit', (e) => {
         e.preventDefault();
+
+        const phoneInput = document.getElementById("phone").value;
+        // Exemple de regex pour un numéro de téléphone français
+        const phoneRegex = /^(\+237|00237)?[26]\d{8}$/;
+
+        if (!phoneRegex.test(phoneInput)) {
+          errorPhoneNumber.style.display = 'block';
+          alert("Veuillez entrer un numéro de téléphone valide.");
+          return;
+        }
+        errorPhoneNumber.style.display = 'none';
 
         btnSubmit.innerText = 'Chargement...'
         btnSubmit.setAttribute('disabled', 'true')

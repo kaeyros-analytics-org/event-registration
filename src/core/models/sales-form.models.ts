@@ -11,6 +11,7 @@ export type SalesFormModel = {
     owner_phone_number: number;
     visit_note: string;
     prospecting_type: string;
+    customer_decision: string;
     latitude: string;
     longitude: string;
   };
