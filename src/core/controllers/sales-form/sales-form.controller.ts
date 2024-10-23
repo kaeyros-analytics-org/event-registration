@@ -4,7 +4,12 @@ import { salesRepresentativeService } from "../sales-representative/sale-represe
 
 class SalesFormController {
 
-    async get(req: Request, res: Response, next: NextFunction){
+    async get(req: Request, res: Response, next: NextFunction){       
+        // res.send(req.query)
+        res.render(`./pages/form_index`)
+    } 
+
+    async getForm(req: Request, res: Response, next: NextFunction){
         const { code } = req.params
         console.log('code =', code)
 

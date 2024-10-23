@@ -22,13 +22,23 @@ class SalesRepresentativeService {
                 name: data.name,
                 code: code,
             }
-            const ExistName = await SalesRepresentative.find({name: dataSale.name})
-            if(ExistName.length > 0) return {status: 400, message: "Name Already Exist"}
+            const existName = await SalesRepresentative.findOne({name: dataSale.name})
+            if(existName) {
+                const newSaleData = existName.toObject();
+                const dataWithLink = {
+                    ...newSaleData,
+                    status: 200,
+                    link: hostname ?`${hostname.startsWith('localhost')? 'http': 'https'}://${hostname}/${existName.code}`: `${helpers.getBaseUrl()}/${existName.code}`
+                }
+
+                return {status: 200, message: dataWithLink}
+            }
             const saleData = await SalesRepresentative.create(dataSale)
             const newSaleData = saleData.toObject();
             const dataWithLink = {
                 ...newSaleData,
-                link: hostname ?`https://${hostname}/${saleData.code}`: `${helpers.getBaseUrl()}/${saleData.code}`
+                status: 201,
+                link: hostname ?`${hostname.startsWith('localhost')? 'http': 'https'}://${hostname}/${saleData.code}`: `${helpers.getBaseUrl()}/${saleData.code}`
             }
             return {status: 201, message: dataWithLink}
             
@@ -74,6 +84,34 @@ class SalesRepresentativeService {
         } catch (error) {
             console.log('error for get by id sale representative =', error);
             return {status: 400, message: `Error for get by id sale representative : ${error}`}
+        }
+    }
+
+    async getByCodeWithLink(code: string, hostname: string|undefined): Promise<{status: number, message: any}>
+    {
+        try {
+            console.log('code 22 =', code);
+
+            const saleData = await SalesRepresentative.findOne({code})
+            console.log('saleData =', saleData);
+            
+            if(saleData == null) return {status: 400, message: {message: "Sale Representative Not Found"}}
+            console.log('saleData =', saleData);
+
+            const saleFormData = saleData.toObject()
+
+            console.log('hostname');
+            
+            
+            const dataWithLink = {
+                ...saleFormData,
+                link: hostname ?`${hostname.startsWith('localhost')? 'http': 'https'}://${hostname}/${saleData.code}`: `${helpers.getBaseUrl()}/${saleData.code}`
+            }
+            return {status: 200, message: dataWithLink}
+            
+        } catch (error) {
+            console.log('error for get by code sale representative =', error);
+            return {status: 400, message: `Error for get by code sale representative : ${error}`}
         }
     }
 

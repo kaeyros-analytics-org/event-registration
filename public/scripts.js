@@ -74,7 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 className: "info",
                 style: {
                   background: "linear-gradient(to right, #2B45D8, ##E9EFFF)",
-                }
+                },
+                duration: 7 * 1000
               }).showToast();
               elementForm.reset()
                 btnSubmit.innerText = 'Envoyer'

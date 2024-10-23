@@ -12,6 +12,19 @@ class SalesRepresentativeController {
         res.render(`./pages/form_representative_index`)
     } 
 
+    async check(req: Request, res: Response, next: NextFunction){
+        const { code } = req.params
+        console.log('code 11 =', code);
+        console.log('req.params =', req.params);
+        
+        
+        const hostname = req.headers.host;
+        const sales = await salesRepresentativeService.getByCodeWithLink(code, hostname);
+
+        // res.send(req.query)
+        res.status(sales.status).json(sales.message);
+    } 
+
     async list(req: Request, res: Response, next: NextFunction){
         const sales = await salesRepresentativeService.getAll();
         res.status(sales.status).send(sales.message);

@@ -20,8 +20,8 @@
               <img src="/toggle-white.svg" alt="toggle white" class="block dark:hidden"/>
               <img src="/toggle-dark.svg" alt="toggle dark" class="hidden dark:block" />
             </button> -->
-            <button id="theme-toggle1" class="dark:hidden block text-gray-300 bg-transparent rounded-full outline-none focus:outline-none w-5 h-5"><span class="sr-only">Light Mode</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg></button>
-            <button id="theme-toggle2" class="dark:block hidden bg-transparent text-gray-500 rounded-full outline-none focus:outline-none focus-visible:ring focus-visible:ring-gray-100 focus:ring-opacity-20"><span class="sr-only">Dark Mode</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" width="24" height="24" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"></path></svg></button>     
+            <button id="theme-toggle1" class="dark:hidden text-gray-300 bg-[#2B2E31] p-2 flex items-center rounded-lg outline-none focus:outline-none "><span class="sr-only hidden">Light Mode</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg></button>
+            <button id="theme-toggle2" class="dark:block hidden dark:bg-[#E6E8EB] p-2 text-gray-500 rounded-lg outline-none focus:outline-none focus-visible:ring focus-visible:ring-gray-100 focus:ring-opacity-20"><span class="sr-only hidden">Dark Mode</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" width="24" height="24" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"></path></svg></button>     
           </div>       
             <h1 class="pt-6 dark:text-[#2B2E31]">Enregistrement des informations pour le commercial</h1> </br>
             <table width="100%" style="margin-top: 1rem;" >
@@ -34,7 +34,7 @@
                 <input type="text" name="sale_representative_code" value="<%= sale_representative_code %>" hidden>
                 <input type="text" name="sale_representative_id" value="<%= sale_representative_id %>" hidden>
                 <div class="relative flex w-full items-center">
-                 <select name="type_of_outlet" id="type_of_outlet" class="custom-select w-full py-3 md:py-3.5 px-10 rounded-lg input-bg-color dark:bg-[#E6E8EB] dark:text-[#2B2E31] appearance-none">
+                 <select name="type_of_outlet" id="type_of_outlet" class="custom-select w-full py-4 md:py-3 px-4 rounded-lg input-bg-color dark:bg-[#E6E8EB] dark:text-[#2B2E31] appearance-none">
                   <option disabled value="" selected hidden>Choisir le type de point de vente *</option>
                   <option value="bar">Bar</option>
                   <option value="snack">Snack</option>
@@ -56,7 +56,7 @@
                   </div>
                 </div>
                 <div class="relative flex w-full items-center">
-                  <select name="city" id="city" class="custom-select w-full  dark:bg-[#E6E8EB] dark:text-[#2B2E31] py-3 md:py-3.5 px-10 rounded-lg input-bg-color appearance-none">
+                  <select name="city" id="city" class="custom-select w-full  dark:bg-[#E6E8EB] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg input-bg-color appearance-none">
                     <option disabled value="" selected hidden>Choisir une ville *</option>
                     <option value="Yaoundé">Yaoundé</option>
                     <option value="Douala">Douala</option>
@@ -81,15 +81,15 @@
                   </div>
                  </div>
                  
-                 <input type="text" name="neighborhood" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3.5 px-10 rounded-lg input-bg-color" placeholder="Quartier *" required>
-                <input type="text" name="pos_name" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3.5 px-10 rounded-lg input-bg-color" placeholder="Nom du point de vente *" required>
-                <input type="text" name="owner_name" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3.5 px-10 rounded-lg input-bg-color" placeholder="Nom du Propriétaire " >
-                <input type="tel" name="owner_phone_number" id="phone" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3.5 px-10 rounded-lg input-bg-color" placeholder="Numéro de téléphone du contact (WhatsApp) *"
+                 <input type="text" name="neighborhood" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg input-bg-color" placeholder="Quartier *" required>
+                <input type="text" name="pos_name" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg input-bg-color" placeholder="Nom du point de vente *" required>
+                <input type="text" name="owner_name" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg input-bg-color" placeholder="Nom du Propriétaire " >
+                <input type="tel" name="owner_phone_number" id="phone" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg input-bg-color" placeholder="Numéro de téléphone du contact (WhatsApp) *"
                 pattern="^(\237|00237)?[26]\d{8}$" required>
                 <small class="text-red-300 dark:text-red-500 hidden" id="phone-error">Entrez un numéro valide (avec ou sans indicatif : +237 ou 00237).</small>
 
                 <div class="relative flex w-full items-center">
-                  <select name="customer_decision" id="customer_decision" class="custom-select  dark:bg-[#E6E8EB] dark:text-[#2B2E31] w-full py-3 md:py-3.5 px-10 rounded-lg input-bg-color appearance-none">
+                  <select name="customer_decision" id="customer_decision" class="custom-select  dark:bg-[#E6E8EB] dark:text-[#2B2E31] w-full py-3 md:py-3 px-4 rounded-lg input-bg-color appearance-none">
                     <option disabled value="" selected hidden>Choisir la decision du client *</option>
                     <option value="Pas interessé">Pas interessé</option>
                     <option value="Interessé">Interessé</option>
@@ -108,7 +108,7 @@
                  </div>
                
                  <div class="relative flex w-full items-center">
-                  <select name="prospecting_type" id="prospecting_type" class="custom-select  dark:bg-[#E6E8EB] dark:text-[#2B2E31] w-full py-3 md:py-3.5 px-10 rounded-lg input-bg-color appearance-none">
+                  <select name="prospecting_type" id="prospecting_type" class="custom-select  dark:bg-[#E6E8EB] dark:text-[#2B2E31] w-full py-3 md:py-3 px-4 rounded-lg input-bg-color appearance-none">
                     <option disabled value="" selected hidden>Choisir le type de prospection *</option>
                     <option value="Physique">Physique</option>
                     <option value="Téléphonique">Téléphonique</option>
@@ -124,13 +124,13 @@
                     </svg>
                   </div>
                  </div>
-                <textarea name="visit_note" id="visit_note" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-10 md:py-10 px-10 rounded-lg mb-2 input-bg-color" placeholder="Notes de visite *" required></textarea>
+                <textarea name="visit_note" id="visit_note" rows="5" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg mb-2 input-bg-color" placeholder="Notes de visite *" required></textarea>
                   <label class="relative flex justify-start items-center group py-2 text-xl mb-4" id="switch-localisation" style="display: none;">
                     <input type="checkbox" class="absolute left-1/2 -translate-x-1/2 w-full h-full peer appearance-none rounded-md" id="localisation" required/>
                     <span class="w-16 h-10 flex items-center flex-shrink-0 ml-0 p-1 bg-white dark:bg-gray-300 rounded-full duration-300 ease-in-out peer-checked:bg-blue-400 after:w-8 after:h-8 after:bg-[#333652] after:rounded-full after:shadow-md after:duration-300 peer-checked:after:translate-x-6 group-hover:after:translate-x-1"></span>
                     <span class="ml-2 dark:text-[#2B2E31]">Récupérer ma localisation</span>
                   </label>
-                <button type="submit" class="w-full py-4 md:py-4.5 rounded-full" id="send-form">Envoyer</button>
+                <button type="submit" class="w-full py-4 md:py-3.5 rounded-full" id="send-form">Envoyer</button>
             </form>
         </div>
     </div>

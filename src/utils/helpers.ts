@@ -19,7 +19,7 @@ class Helpers{
 
     getBaseUrl() {
         const hostname = os.hostname();
-        return `https://${hostname}`
+        return `${hostname.startsWith('localhost')? 'http': 'https'}://${hostname}`
     }
 }
 

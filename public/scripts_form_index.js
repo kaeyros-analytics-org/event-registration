@@ -4,7 +4,7 @@ let longitude;
 document.addEventListener('DOMContentLoaded', () => {
     const elementForm = document.getElementById('form-submit')
     const btnSubmit = document.getElementById('send-form')
-    const linkForm = document.getElementById('link_form_data')
+    // const linkForm = document.getElementById('link_form_data')
     // const btnLocation = document.getElementById('localisation')
     // const typeProspecting = document.getElementById('prospecting_type')
 
@@ -21,43 +21,37 @@ document.addEventListener('DOMContentLoaded', () => {
             values[key] = value
         })
 
-        // console.log('values =', values);
+        console.log('values =', values['code']);
 
-        fetch('/sales-representative/create', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(values) // Convertir les données du formulaire en JSON
-        })
+        fetch(`/sales-representative/check/${values['code']}`)
         .then(response => response.json())
         .then(data => {
             console.log('Success:', data);
-
-            if (data.satus == 201) {
+            // Toastify({
+            //     text: "Formulaire soumis avec succès!",
+            //     className: "info",
+            //     style: {
+            //       background: "linear-gradient(to right, #2B45D8, ##E9EFFF)",
+            //     }
+            //   }).showToast();
+            if(!data.link) {
               Toastify({
-                  text: "Formulaire soumis avec succès!",
-                  className: "info",
-                  style: {
-                    background: "linear-gradient(to right, #2B45D8, ##E9EFFF)",
-                  }
-                }).showToast();
-            }
-            else {
-              Toastify({
-                text: "Sales representative existant!",
-                className: "info",
-                style: {
-                  background: "linear-gradient(90deg, rgba(207,25,62,1) 41%, rgba(255,195,195,1) 100%)",
-                },
-                duration: 5 * 1000
-              }).showToast();
-            }
+              text: "Code incorrect.",
+              className: "info",
+              style: {
+                background: "linear-gradient(90deg, rgba(207,25,62,1) 41%, rgba(255,195,195,1) 100%)",
+              }
+            }).showToast();
+            btnSubmit.innerText = 'Envoyer'
+              btnSubmit.removeAttribute('disabled')
+            return
+          }
               console.log('data.link ==', data.link);
               
-              linkForm.value = data.link
-              document.getElementById("link_form_data").value = data.link;
-              linkForm.style.display = 'block'
+              // linkForm.value = data.link
+              window.location.href = data.link
+              // document.getElementById("link_form_data").value = data.link;
+              // linkForm.style.display = 'block'
               // elementForm.reset()
                 btnSubmit.innerText = 'Envoyer'
               btnSubmit.removeAttribute('disabled')
@@ -65,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch((error) => {
             console.error('Error:', error);
             Toastify({
-                text: "Erreur lors de la soumission du formulaire.",
+                text: "Code incorrect.",
                 className: "info",
                 style: {
                   background: "linear-gradient(90deg, rgba(207,25,62,1) 41%, rgba(255,195,195,1) 100%)",

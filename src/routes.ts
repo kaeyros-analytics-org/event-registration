@@ -24,8 +24,9 @@ router.get('/sales-representative/form', (req: Request, res: Response, next: Nex
 router.get('/sales-representative', (req: Request, res: Response, next: NextFunction) => salesRepresentativeController.list(req, res, next));
 router.post('/sales-representative/create', (req: Request, res: Response, next: NextFunction) => salesRepresentativeController.create(req, res, next));
 router.patch('/sales-representative/update/:id', (req: Request, res: Response, next: NextFunction) => salesRepresentativeController.update(req, res, next));
+router.get('/sales-representative/check/:code', (req: Request, res: Response, next: NextFunction) => salesRepresentativeController.check(req, res, next));
 
-router.get('/:code', (req: Request, res: Response, next: NextFunction) => salesFormController.get(req, res, next));
+router.get('/:code', (req: Request, res: Response, next: NextFunction) => salesFormController.getForm(req, res, next));
 router.get('/sales-form/list', (req: Request, res: Response, next: NextFunction) => salesFormController.list(req, res, next));
 router.get('/sales-form/list-by-code/:code', (req: Request, res: Response, next: NextFunction) => salesFormController.listByCode(req, res, next));
 router.get('/sales-form/download', (req: Request, res: Response, next: NextFunction) => salesFormController.download(req, res, next));
