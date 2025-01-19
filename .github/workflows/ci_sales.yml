@@ -1,34 +1,38 @@
-name: CI Pipeline
+name: CI/CD Pipeline 
 
 on:
   push:
-    branches: [ "new_form_commmerciaux" ]
+    branches: ["new_form_commmerciaux"]
 
 env:
-  IMAGE_NAME: ghcr.io/kaeyros-analytics/sales-registration:latest
-  CONTAINER_NAME_BACKEND: ucb__container
-
+  FRONTEND_IMAGE_REPOSITORY: ghcr.io/kaeyros-analytics/sales-registration
 defaults:
   run:
     shell: bash
 
 jobs:
   ci:
-    name: Continuous Integration
+    name: Continuous Integration - Development - Mira Dashboard
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set Git Commit SHA as Tag
+        run: echo "IMAGE_TAG=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
       - name: Login to GitHub Container Registry
         run: |
           echo "${{ secrets.TOKEN }}" | docker login ghcr.io -u "${{ secrets.USERNAME }}" --password-stdin
 
-      - name: Build the Docker image for backend
-        run: |
-          docker build -t ${{ env.IMAGE_NAME }} .
 
-      - name: Push backend image to GitHub Container Registry
+      - name: Build the Docker image for frontend
         run: |
-          docker push ${{ env.IMAGE_NAME }}
+          
+          docker build -t ${{ env.FRONTEND_IMAGE_REPOSITORY }}:${{ env.IMAGE_TAG }} .
+
+      - name: Push frontend image to GitHub Container Registry
+        run: |
+          docker push ${{ env.FRONTEND_IMAGE_REPOSITORY }}:${{ env.IMAGE_TAG }}
+
