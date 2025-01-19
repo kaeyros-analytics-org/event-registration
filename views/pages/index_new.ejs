@@ -83,6 +83,53 @@
                  </div>
                  
                  <input type="text" name="neighborhood" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg input-bg-color" placeholder="Quartier *" required>
+                 
+                 <input type="text" name="repere" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg input-bg-color" placeholder="Repere *" required>
+                 
+                 <div class="relative flex w-full items-center">
+                  <select name="customer_status" id="customer_status" class="custom-select w-full py-4 md:py-3 px-4 rounded-lg input-bg-color dark:bg-[#E6E8EB] dark:text-[#2B2E31] appearance-none">
+                   <option disabled value="" selected hidden>Choisir la Status du client *</option>
+                   <option value="gerant">Gerant</option>
+                   <option value="proprietaire">Proprietaire</option>
+                   <option value="employe">Employe</option>
+                  </select>
+ 
+                   <!-- Flèche personnalisée -->
+                   <div class="arrow-icon pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 dark:text-gray-800 text-gray-100">
+                     <svg class="w-5 h-5 down-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                     </svg>
+                     <svg class="w-5 h-5 up-arrow hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                     </svg>
+                   </div>
+                 </div>
+
+                 <input type="text" name="crm" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg input-bg-color" placeholder="CRM *" required>
+                 <input type="number" name="estimate_ca" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg input-bg-color" placeholder="Estimation du CA *" required>
+
+                 <input type="number" name="ca_kaeyros" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg input-bg-color" placeholder="CA Kaeyros *" required>
+                 
+                 <div class="relative flex w-full items-center">
+                  <select name="category" id="category" class="custom-select w-full py-4 md:py-3 px-4 rounded-lg input-bg-color dark:bg-[#E6E8EB] dark:text-[#2B2E31] appearance-none">
+                   <option disabled value="" selected hidden>Choisir la categorie *</option>
+                   <option value="A">A</option>
+                   <option value="B">B</option>
+                   <option value="C">C</option>
+                   <option value="D">D</option>
+                  </select>
+ 
+                   <!-- Flèche personnalisée -->
+                   <div class="arrow-icon pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 dark:text-gray-800 text-gray-100">
+                     <svg class="w-5 h-5 down-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                     </svg>
+                     <svg class="w-5 h-5 up-arrow hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                     </svg>
+                   </div>
+                 </div>
+
                 <input type="text" name="pos_name" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg input-bg-color" placeholder="Nom du point de vente *" required>
                 <input type="text" name="owner_name" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg input-bg-color" placeholder="Nom du Propriétaire " >
                 <input type="tel" name="owner_phone_number" id="phone" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg input-bg-color" placeholder="Numéro de téléphone du contact (WhatsApp) *"

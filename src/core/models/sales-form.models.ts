@@ -12,6 +12,13 @@ export type SalesFormModel = {
     visit_note: string;
     prospecting_type: string;
     customer_decision: string;
+    repere: string;
+    customer_status: string;
+    crm: string;
+    estimate_ca: number;
+    ca_kaeyros: number
+    category: string;
+    type_of_business: string;
     latitude: string;
     longitude: string;
   };

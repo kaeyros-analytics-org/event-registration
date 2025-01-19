@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
-import { SalesFormDoc } from "../../models/sales-form.models";
+import { SalesVisitDoc } from "../../models/sales-visit.models";
 
-const SalesFormSchema = new Schema<SalesFormDoc>(
+const SalesVisitSchema = new Schema<SalesVisitDoc>(
   {
     sale_representative_id: {
       type: String,
@@ -12,64 +12,48 @@ const SalesFormSchema = new Schema<SalesFormDoc>(
       type: String,
       required: true,
     },
-    type_of_outlet: {
+    zone: {
       type: String,
       required: true,
     },
-    city: {
+    customer_name: {
       type: String,
       required: true,
     },
-    pos_name: {
+    business_name: {
       type: String,
       required: true,
     },
-    owner_name: {
-      type: String,
-      required: false,
-      default: "",
-    },
-    owner_phone_number: {
-      type: Number,
-      required: true,
-    },
-    visit_note: {
+    contact: {
       type: String,
       required: true,
-    },
-    prospecting_type: {
-      type: String,
-      required: true,
-    },
-    customer_decision: {
-      type: String,
-      required: true,
-    },
-    repere: {
-      type: String,
-      required: false,
-    },
-    customer_status: {
-      type: String,
-      required: false,
-    },
-    crm: {
-      type: String,
-      required: false,
-    },
-    estimate_ca: {
-      type: Number,
-      required: false,
-    },
-    ca_kaeyros: {
-      type: Number,
-      required: false,
     },
     category: {
       type: String,
       required: false,
+      default: "",
     },
     type_of_business: {
+      type: String,
+      required: true,
+    },
+    address: {
+      type: String,
+      required: true,
+    },
+    achievement: {
+      type: String,
+      required: true,
+    },
+    visit_objective: {
+      type: String,
+      required: true,
+    },
+    comment: {
+      type: String,
+      required: true,
+    },
+    visit_carried_out: {
       type: String,
       required: false,
     },
@@ -87,6 +71,6 @@ const SalesFormSchema = new Schema<SalesFormDoc>(
   }
 );
 
-const SalesForm = mongoose.model<SalesFormDoc>("salesForm", SalesFormSchema);
+const SalesVisit = mongoose.model<SalesVisitDoc>("salesVisit", SalesVisitSchema);
 
-export default SalesForm;
+export default SalesVisit;

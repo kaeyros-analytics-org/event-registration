@@ -8,6 +8,7 @@ import { eventController } from './core/controllers/events/event.controller';
 import { emailController } from './core/controllers/emails/email.controller';
 import { salesFormController } from './core/controllers/sales-form/sales-form.controller';
 import { salesRepresentativeController } from './core/controllers/sales-representative/sale-representative.controller';
+import { salesVisitController } from './core/controllers/sales-visit/sales-visit.controller';
 const router = express.Router();
 
 router.get('/', (req: Request, res: Response, next: NextFunction) => salesFormController.get(req, res, next));
@@ -32,6 +33,11 @@ router.get('/sales-form/list-by-code/:code', (req: Request, res: Response, next:
 router.get('/sales-form/download', (req: Request, res: Response, next: NextFunction) => salesFormController.download(req, res, next));
 router.post('/sales-form/create', (req: Request, res: Response, next: NextFunction) => salesFormController.create(req, res, next));
 router.patch('/sales-form/update/:id', (req: Request, res: Response, next: NextFunction) => salesFormController.update(req, res, next));
+
+router.get('/:code/visit', (req: Request, res: Response, next: NextFunction) => salesVisitController.getForm(req, res, next));
+router.post('/:code/visit/create', (req: Request, res: Response, next: NextFunction) => salesVisitController.create(req, res, next));
+router.get('/:code/visit/download', (req: Request, res: Response, next: NextFunction) => salesVisitController.download(req, res, next));
+
 
 
 export default router;
