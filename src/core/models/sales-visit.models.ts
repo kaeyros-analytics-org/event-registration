@@ -9,6 +9,7 @@ export type SalesVisitModel = {
     category: string
     type_of_business: string;
     address: string;
+    customer_status: string;
     visit_objective: string;
     zone: string;
     achievement: string;

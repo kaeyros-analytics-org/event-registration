@@ -45,13 +45,32 @@
 
                 <input type="text" name="customer_name" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg input-bg-color" placeholder="Nom du client *" required>
 
+                <div class="relative flex w-full items-center">
+                  <select name="customer_status" id="customer_status" class="custom-select w-full py-4 md:py-3 px-4 rounded-lg input-bg-color dark:bg-[#E6E8EB] dark:text-[#2B2E31] appearance-none">
+                   <option disabled value="" selected hidden>Choisir la Status du client *</option>
+                   <option value="gerant">Gerant</option>
+                   <option value="proprietaire">Proprietaire</option>
+                   <option value="employe">Employe</option>
+                  </select>
+ 
+                   <!-- Flèche personnalisée -->
+                   <div class="arrow-icon pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 dark:text-gray-800 text-gray-100">
+                     <svg class="w-5 h-5 down-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                     </svg>
+                     <svg class="w-5 h-5 up-arrow hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                     </svg>
+                   </div>
+                 </div>
+
                 <input type="text" name="business_name" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg input-bg-color" placeholder="Nom du business *" required>
                 
                 <input type="tel" name="contact" id="phone" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg input-bg-color" placeholder="Numéro de téléphone du contact (WhatsApp) *"
                 pattern="^(\237|00237)?[26]\d{8}$" required>
                 <small class="text-red-300 dark:text-red-500 hidden" id="phone-error">Entrez un numéro valide (avec ou sans indicatif : +237 ou 00237).</small>
 
-                <input type="text" name="address" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg input-bg-color" placeholder="Adresse *" required>
+                <input type="text" name="address" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg input-bg-color" placeholder="Quartier *" required>
                 
                 <div class="relative flex w-full items-center">
                   <select name="category" id="category" class="custom-select w-full py-4 md:py-3 px-4 rounded-lg input-bg-color dark:bg-[#E6E8EB] dark:text-[#2B2E31] appearance-none">
@@ -125,7 +144,7 @@
 
                 <textarea name="comment" id="comment" rows="5" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg input-bg-color" placeholder="Commentaire *" required></textarea>
 
-                <textarea name="visit_carried_out" id="visit_carried_out" rows="5" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg mb-2 input-bg-color" placeholder="Visite éffectuée ? prochaine action ! *" required></textarea>
+                <textarea name="visit_carried_out" id="visit_carried_out" rows="5" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg mb-2 input-bg-color" placeholder="prochaine action ? *" required></textarea>
 
                   <label class="relative flex justify-start items-center group py-2 text-xl mb-4" id="switch-localisation">
                     <input type="checkbox" class="absolute left-1/2 -translate-x-1/2 w-full h-full peer appearance-none rounded-md" id="localisation" required/>

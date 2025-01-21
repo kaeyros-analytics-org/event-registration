@@ -37,6 +37,10 @@ const SalesVisitSchema = new Schema<SalesVisitDoc>(
       type: String,
       required: true,
     },
+    customer_status: {
+      type: String,
+      required: true,
+    },
     address: {
       type: String,
       required: true,
