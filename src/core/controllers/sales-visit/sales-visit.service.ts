@@ -23,6 +23,21 @@ class SalesVisitService {
         }
     }
 
+    async searchFormVisit(value: string): Promise<{status: number, message: any}>
+    {
+        try {
+            console.log('value =', value);
+            const saleVisitData = await SalesVisit.find({business_name: {
+                $regex: value,
+                $options: "i",
+            }})
+            return {status: 200, message: saleVisitData}            
+        } catch (error) {
+            console.log('error for search sale visit for representative =', error);
+            return {status: 400, message: `Error for search sale visit for representative : ${error}`}
+        }
+    }
+
     async countSaleVisit(sale_representative_code: string): Promise<{status: number, message: any}>
     {
         try {
@@ -117,20 +132,7 @@ class SalesVisitService {
                 latitude: item.latitude,
                 longitude: item.longitude,
             };
-            // return {
-            //     sale_representative_id: item.sale_representative_id,
-            //     sale_representative_code: item.sale_representative_code,
-            //     type_of_outlet: item.type_of_outlet,
-            //     city: item.city,
-            //     neighborhood: item.neighborhood,
-            //     pos_name: item.pos_name,
-            //     owner_name: item.owner_name,
-            //     owner_phone_number: item.owner_phone_number,
-            //     visit_note: item.visit_note,
-            //     prospecting_type: item.prospecting_type,
-            //     latitude: item.latitude,
-            //     longitude: item.longitude,
-            // };
+
           });
     
           // Créer un nouveau classeur
@@ -160,7 +162,58 @@ class SalesVisitService {
         } catch (error) {
           console.error(`Erreur lors du telechargement des datas ${error}`);
         }
-      }
+    }
+
+
+    async regularCityWithLongitudeAndLatitude() {
+
+        try {
+            const listSalesVisit = await SalesVisit.find({});
+
+            const listSalesVisitWithCity = listSalesVisit.filter((item: any) => !item.city && item.latitude && item.longitude);
+
+            console.log('listSalesVisitWithCity =', listSalesVisitWithCity.length)
+
+            for(let item of listSalesVisitWithCity){
+                const city = await this.getCityFromCoordinates(item.latitude, item.longitude)
+                console.log('city =', city);
+                if(city){
+                    await SalesVisit.findByIdAndUpdate(item.id, {city: city})
+                }
+            }
+
+
+        } catch (error) {
+            console.log('error for regular city with longitude and latitude =', error);
+        }
+
+    }
+
+      async getCityFromCoordinates(latitude: string, longitude: string) {
+        const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&addressdetails=1`;
+    
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+    
+            if (data && data.address) {
+                // Vérifie si une ville ou un village est disponible
+                const city = data.address.city || data.address.town || data.address.village;
+                if (city) {
+                    return city;
+                } else {
+                    console.error("Aucune ville trouvée pour ces coordonnées.");
+                    return null;
+                }
+            } else {
+                console.error("Aucune donnée retournée par l'API.");
+                return null;
+            }
+        } catch (error) {
+            console.error("Erreur lors de l'appel à l'API :", error);
+            return null;
+        }
+    }
 }
 
 export const salesVisitService = new SalesVisitService();

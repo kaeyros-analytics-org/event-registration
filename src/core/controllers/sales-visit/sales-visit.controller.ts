@@ -50,6 +50,19 @@ class SalesVisitController {
         res.status(sales.status).send(sales.message);
     }
 
+    async searchByCompany(req: Request, res: Response, next: NextFunction){
+        const q = req.query.q as string
+
+        if(!q) return res.status(400).send("search Not Found")
+        const sales = await salesVisitService.searchFormVisit(q);
+        res.status(sales.status).send(sales.message);
+    }
+
+    async regularCityWithLongitudeAndLatitude(req: Request, res: Response, next: NextFunction){
+        await salesVisitService.regularCityWithLongitudeAndLatitude();
+        res.status(200).send('Ok');
+    }
+
     async create(req: Request, res: Response, next: NextFunction){
         try{
             const data = req.body

@@ -35,6 +35,8 @@ router.post('/sales-form/create', (req: Request, res: Response, next: NextFuncti
 router.patch('/sales-form/update/:id', (req: Request, res: Response, next: NextFunction) => salesFormController.update(req, res, next));
 
 router.get('/:code/visit', (req: Request, res: Response, next: NextFunction) => salesVisitController.getForm(req, res, next));
+router.get('/:code/visit/search', (req: Request, res: Response, next: NextFunction) => salesVisitController.searchByCompany(req, res, next));
+router.get('/:code/visit/regular', (req: Request, res: Response, next: NextFunction) => salesVisitController.regularCityWithLongitudeAndLatitude(req, res, next));
 router.post('/:code/visit/create', (req: Request, res: Response, next: NextFunction) => salesVisitController.create(req, res, next));
 router.get('/:code/visit/download', (req: Request, res: Response, next: NextFunction) => salesVisitController.download(req, res, next));
 

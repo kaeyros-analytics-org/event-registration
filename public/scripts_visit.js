@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnLocation = document.getElementById('localisation')
     const typeProspecting = document.getElementById('prospecting_type')
     const errorPhoneNumber = document.getElementById('phone-error')
-
+    const inputAutComplete = document.getElementById('autocomplete')
 
     elementForm.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -34,21 +34,19 @@ document.addEventListener('DOMContentLoaded', () => {
             values[key] = value
         })
 
-        if(values['prospecting_type'] == 'Physique'){
+        values['business_name'] = inputAutComplete.value
 
-          if(!btnLocation.checked || !latitude || !longitude){
-            Toastify({
-              text: "Veuillez activer la localisation.",
-              className: "info",
-              style: {
-                background: "linear-gradient(90deg, rgba(207,25,62,1) 41%, rgba(255,195,195,1) 100%)",
-              }
-            }).showToast();
-            btnSubmit.innerText = 'Envoyer'
-            btnSubmit.removeAttribute('disabled')
-            return;
-          }
-          
+        if(!btnLocation.checked || !latitude || !longitude){
+          Toastify({
+            text: "Veuillez activer la localisation.",
+            className: "info",
+            style: {
+              background: "linear-gradient(90deg, rgba(207,25,62,1) 41%, rgba(255,195,195,1) 100%)",
+            }
+          }).showToast();
+          btnSubmit.innerText = 'Envoyer'
+          btnSubmit.removeAttribute('disabled')
+          return;
         }
 
 
@@ -152,4 +150,77 @@ document.addEventListener("DOMContentLoaded", function() {
       downArrow.classList.remove('hidden');
     });
   });
+
+    //autocomplete
+
+    const input = document.getElementById('autocomplete');
+    const resultsContainer = document.getElementById('results');
+    const companyName = document.getElementById('company_name');
+    // const address = document.getElementById('address');
+    // const name_of_representant = document.getElementById('name_of_representant');
+    // const title_respresentant = document.getElementById('title_respresentant');
+    // const redevance_month = document.getElementById('redevance_month');
+    // const city = document.getElementById('city');
+    // const date = document.getElementById('date');
+    // const phone_number = document.getElementById('phone_number');
+
+    // Fonction pour rechercher les résultats depuis l'API
+    async function search(query) {
+      if (query.length < 2) {
+        resultsContainer.classList.add('hidden'); // Cacher les résultats si la requête est trop courte
+        return;
+      }
+
+      try {
+          const response = await fetch(`/${sale_representative_code}/visit/search?q=${query}`);
+          const results = await response.json();
+
+          // Afficher les résultats dans la liste déroulante
+          if (results.length > 0) {
+              resultsContainer.innerHTML = results.map(item => `
+                  <li class="p-2 cursor-pointer hover:bg-gray-200 search-color-box" 
+                  onclick="selectResult('${item.business_name}')">${item.business_name}</li>
+              `).join('');
+              resultsContainer.classList.remove('hidden'); // Montrer la liste déroulante
+          } else {
+              resultsContainer.classList.add('hidden'); // Cacher s'il n'y a pas de résultats
+          }
+      } catch (error) {
+          console.error('Erreur lors de la recherche:', error);
+      }
+    }
+
+    // Fonction pour sélectionner un résultat et le mettre dans l'input
+    window.selectResult = function (company_name) {
+      // const Date = new Date('2024-09-10')
+        input.value = company_name;
+        // companyName.value = company_name;
+        // address.value = district;
+        // name_of_representant.value = `${first_name} ${last_name}`;
+        // title_respresentant.value = poste;
+        // redevance_month.value = '10000 FCFA';
+        // city.value = 'Douala';
+        // date.value = '2024-09-10';
+        // phone_number.value = phone_number_whatsapp;
+        resultsContainer.classList.add('hidden');
+    }
+
+    // Écouteur d'événement pour afficher les résultats lorsque l'utilisateur tape
+    input.addEventListener('input', (e) => {
+        search(e.target.value);
+    });
+
+    // Afficher les résultats lorsque l'utilisateur clique sur le champ
+    input.addEventListener('focus', () => {
+        if (input.value.length > 1) {
+            resultsContainer.classList.remove('hidden'); // Montrer la liste si des résultats existent
+        }
+    });
+
+    // Masquer les résultats lorsqu'on clique en dehors du champ ou des résultats
+    document.addEventListener('click', (e) => {
+        if (!input.contains(e.target) && !resultsContainer.contains(e.target)) {
+            resultsContainer.classList.add('hidden'); // Masquer la liste si l'utilisateur clique en dehors
+        }
+    });
 });

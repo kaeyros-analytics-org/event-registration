@@ -6,7 +6,8 @@ export type SalesVisitModel = {
     customer_name: string;
     business_name: string;
     contact: string;
-    category: string
+    category: string;
+    city: string
     type_of_business: string;
     address: string;
     customer_status: string;

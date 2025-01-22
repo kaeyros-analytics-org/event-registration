@@ -16,6 +16,10 @@ const SalesVisitSchema = new Schema<SalesVisitDoc>(
       type: String,
       required: true,
     },
+    city: {
+      type: String,
+      required: true,
+    },
     customer_name: {
       type: String,
       required: true,
@@ -30,7 +34,7 @@ const SalesVisitSchema = new Schema<SalesVisitDoc>(
     },
     category: {
       type: String,
-      required: false,
+      required: true,
       default: "",
     },
     type_of_business: {
@@ -59,7 +63,7 @@ const SalesVisitSchema = new Schema<SalesVisitDoc>(
     },
     visit_carried_out: {
       type: String,
-      required: false,
+      required: true,
     },
     longitude: {
       type: String,
