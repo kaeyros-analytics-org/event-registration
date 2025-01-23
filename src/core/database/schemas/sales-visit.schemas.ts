@@ -14,7 +14,7 @@ const SalesVisitSchema = new Schema<SalesVisitDoc>(
     },
     zone: {
       type: String,
-      required: true,
+      required: false,
     },
     city: {
       type: String,
