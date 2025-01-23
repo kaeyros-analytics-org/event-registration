@@ -774,10 +774,6 @@ video {
   margin-top: 1.5rem;
 }
 
-.mt-8 {
-  margin-top: 2rem;
-}
-
 .block {
   display: block;
 }
@@ -937,10 +933,6 @@ video {
   padding-top: 1.5rem;
 }
 
-.text-center {
-  text-align: center;
-}
-
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -1087,7 +1079,7 @@ select{
   background-color: #2B2E31;
 }
 
-button{
+button, a.download{
   background-color: #42A5F5;
   font-size: 16px;
   line-height: 20px;

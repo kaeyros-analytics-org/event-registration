@@ -92,7 +92,7 @@ class SalesVisitController {
 
     async download(req: Request, res: Response, next: NextFunction){
         try {
-            return await salesVisitService.downloadDataExcel(req, res, next)
+            return await salesVisitService.downloadDataExcelByCode(req, res, next)
         } catch (error) {
             console.log('error for download form data sales =', error);
             res.status(400).send(`Error for download form data sales : ${error}`);
