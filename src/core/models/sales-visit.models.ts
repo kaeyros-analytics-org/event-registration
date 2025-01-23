@@ -13,6 +13,10 @@ export type SalesVisitModel = {
     customer_status: string;
     visit_objective: string;
     zone: string;
+    prospecting_type: string;
+    customer_decision: string;
+    suggested_introductory_price: number;
+    proposed_monthly_price: number;
     achievement: string;
     comment: string;
     visit_carried_out: string;

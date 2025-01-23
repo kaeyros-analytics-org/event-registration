@@ -28,6 +28,22 @@ const SalesVisitSchema = new Schema<SalesVisitDoc>(
       type: String,
       required: true,
     },
+    prospecting_type: {
+      type: String,
+      required: true,
+    },
+    customer_decision: {
+      type: String,
+      required: true,
+    },
+    suggested_introductory_price: {
+      type: Number,
+      required: true,
+    },
+    proposed_monthly_price: {
+      type: Number,
+      required: true,
+    },
     contact: {
       type: String,
       required: true,
