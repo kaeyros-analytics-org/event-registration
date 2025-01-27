@@ -9,20 +9,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const errorPhoneNumber = document.getElementById('phone-error')
     const inputAutComplete = document.getElementById('autocomplete')
 
+    const customer_status = document.getElementById('customer_status');
+    const customer_status_placeholder = document.getElementById('customer_status_placeholder');
+
+    // const business_name = document.getElementById('business_name');
+    const business_name_autocomplete = document.getElementById('autocomplete');
+    const visit_objective = document.getElementById('visit_objective');
+    const visit_objective_placeholder = document.getElementById('visit_objective_placeholder');
+
+    const customer_decision_placeholder = document.getElementById('customer_decision_placeholder');
+
+    const customer_decision = document.getElementById('customer_decision');
+    const achievement = document.getElementById('achievement');
+    const comment = document.getElementById('comment');
+    const visit_carried_out = document.getElementById('visit_carried_out');
+    const phone = document.getElementById('phone')
+
+    const suggested_introductory_priceInput = document.getElementById('suggested_introductory_price');
+    const proposed_monthly_priceInput = document.getElementById('proposed_monthly_price');
+
+
     elementForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
         const phoneInput = document.getElementById("phone").value;
         const sale_representative_code = document.getElementById('sale_representative_code').value;
-        // Exemple de regex pour un numéro de téléphone français
-        const phoneRegex = /^(\+237|00237)?[26]\d{8}$/;
+        
+        
+        if(typeProspecting.value == 'Physique'){
 
-        if (!phoneRegex.test(phoneInput)) {
-          errorPhoneNumber.style.display = 'block';
-          alert("Veuillez entrer un numéro de téléphone valide.");
-          return;
+          // Exemple de regex pour un numéro de téléphone français
+          const phoneRegex = /^(\+237|00237)?[26]\d{8}$/;
+
+          if (!phoneRegex.test(phoneInput)) {
+            errorPhoneNumber.style.display = 'block';
+            alert("Veuillez entrer un numéro de téléphone valide.");
+            return;
+          }
+          errorPhoneNumber.style.display = 'none';
+
         }
-        errorPhoneNumber.style.display = 'none';
 
         btnSubmit.innerText = 'Chargement...'
         btnSubmit.setAttribute('disabled', 'true')
@@ -33,6 +59,12 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.forEach((value, key) => {
             values[key] = value
         })
+
+        values['suggested_introductory_price'] = values['suggested_introductory_price'] ? values['suggested_introductory_price'] : suggested_introductory_priceInput.value
+        values['proposed_monthly_price'] = values['proposed_monthly_price'] ? values['proposed_monthly_price'] : proposed_monthly_priceInput.value
+
+
+        // console.log('values =', values)
 
         values['business_name'] = inputAutComplete.value
 
@@ -60,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // console.log('values =', values);
-        console.log('sale_representative_code =', sale_representative_code)
+        // console.log('sale_representative_code =', sale_representative_code)
 
 
         fetch(`/${sale_representative_code}/visit/create`, {
@@ -72,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(response => response.json())
         .then(data => {
-            console.log('Success:', data);
+            // console.log('Success:', data);
             Toastify({
                 text: "Formulaire soumis avec succès!",
                 className: "info",
@@ -82,11 +114,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 duration: 7 * 1000
               }).showToast();
               elementForm.reset()
+              customer_status.setAttribute('required', true);
+              business_name_autocomplete.setAttribute('required', true);
+              visit_objective.setAttribute('required', true);
+              customer_decision.setAttribute('required', true);
+              achievement.setAttribute('required', true);
+              comment.setAttribute('required', true);
+              visit_carried_out.setAttribute('required', true);
+              phone.setAttribute('required', true);
+
+              customer_status_placeholder.textContent =  customer_status_placeholder.textContent.endsWith('*') ? customer_status_placeholder.textContent : customer_status_placeholder.textContent+"*"
+              business_name_autocomplete.placeholder =  business_name_autocomplete.placeholder.endsWith('*') ? business_name_autocomplete.placeholder : business_name_autocomplete.placeholder+"*"
+              visit_objective_placeholder.textContent =  visit_objective_placeholder.textContent.endsWith('*') ? visit_objective_placeholder.textContent : visit_objective_placeholder.textContent+"*"
+              customer_decision_placeholder.textContent =  customer_decision_placeholder.textContent.endsWith('*') ? customer_decision_placeholder.textContent : customer_decision_placeholder.textContent+"*"
+              achievement.placeholder =  achievement.placeholder.endsWith('*') ? achievement.placeholder : achievement.placeholder+"*"
+              comment.placeholder =  comment.placeholder.endsWith('*') ? comment.placeholder : comment.placeholder+"*"
+              visit_carried_out.placeholder =  visit_carried_out.placeholder.endsWith('*') ? visit_carried_out.placeholder : visit_carried_out.placeholder+"*"
+              phone.placeholder =  phone.placeholder.endsWith('*') ? phone.placeholder : phone.placeholder+"*"
+
+              suggested_introductory_priceInput.disabled = false
+              proposed_monthly_priceInput.disabled = false
+
                 btnSubmit.innerText = 'Envoyer'
               btnSubmit.removeAttribute('disabled')
         })
         .catch((error) => {
-            console.error('Error:', error);
+            // console.error('Error:', error);
             Toastify({
                 text: "Erreur lors de la soumission du formulaire.",
                 className: "info",
@@ -117,13 +170,58 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault()
 
       const value = e.target.value
-      console.log('value =', value);
+      // console.log('value =', value);
 
       if(value == 'Physique'){
+        customer_status.setAttribute('required', true);
+        business_name_autocomplete.setAttribute('required', true);
+        visit_objective.setAttribute('required', true);
+        customer_decision.setAttribute('required', true);
+        achievement.setAttribute('required', true);
+        comment.setAttribute('required', true);
+        visit_carried_out.setAttribute('required', true);
+        phone.setAttribute('required', true);
+
+        customer_status_placeholder.textContent =  customer_status_placeholder.textContent.endsWith('*') ? customer_status_placeholder.textContent : customer_status_placeholder.textContent+"*"
+        business_name_autocomplete.placeholder =  business_name_autocomplete.placeholder.endsWith('*') ? business_name_autocomplete.placeholder : business_name_autocomplete.placeholder+"*"
+        visit_objective_placeholder.textContent =  visit_objective_placeholder.textContent.endsWith('*') ? visit_objective_placeholder.textContent : visit_objective_placeholder.textContent+"*"
+        customer_decision_placeholder.textContent =  customer_decision_placeholder.textContent.endsWith('*') ? customer_decision_placeholder.textContent : customer_decision_placeholder.textContent+"*"
+        achievement.placeholder =  achievement.placeholder.endsWith('*') ? achievement.placeholder : achievement.placeholder+"*"
+        comment.placeholder =  comment.placeholder.endsWith('*') ? comment.placeholder : comment.placeholder+"*"
+        visit_carried_out.placeholder =  visit_carried_out.placeholder.endsWith('*') ? visit_carried_out.placeholder : visit_carried_out.placeholder+"*"
+        phone.placeholder =  phone.placeholder.endsWith('*') ? phone.placeholder : phone.placeholder+"*"
+
+        // business_name_autocomplete.placeholder =  business_name_autocomplete.placeholder.replace('*', '')
+        // visit_objective_placeholder.value =  visit_objective_placeholder.value.replace('*', '')
+        // customer_decision_placeholder.value =  customer_decision_placeholder.value.replace('*', '')
+        // achievement.placeholder =  achievement.placeholder.replace('*', '')
+        // comment.placeholder =  comment.placeholder.replace('*', '')
+        // visit_carried_out.placeholder =  visit_carried_out.placeholder.replace('*', '')
+
         document.getElementById('switch-localisation').style.display = 'flex'
         document.getElementById('localisation').setAttribute('required', 'true')
       }
       else{
+          customer_status.removeAttribute('required');
+          business_name_autocomplete.removeAttribute('required');
+          visit_objective.removeAttribute('required');
+          customer_decision.removeAttribute('required');
+          achievement.removeAttribute('required');
+          comment.removeAttribute('required');
+          visit_carried_out.removeAttribute('required');
+          phone.removeAttribute('required');
+
+          customer_status_placeholder.textContent =  customer_status_placeholder.textContent.replace('*', '')
+          business_name_autocomplete.placeholder =  business_name_autocomplete.placeholder.replace('*', '')
+
+
+          visit_objective_placeholder.textContent =  visit_objective_placeholder.textContent.replace('*', '')
+          customer_decision_placeholder.textContent =  customer_decision_placeholder.textContent.replace('*', '')
+          achievement.placeholder =  achievement.placeholder.replace('*', '')
+          comment.placeholder =  comment.placeholder.replace('*', '')
+          visit_carried_out.placeholder =  visit_carried_out.placeholder.replace('*', '')
+          phone.placeholder =  phone.placeholder.replace('*', '')
+
         document.getElementById('switch-localisation').style.display = 'none'
         document.getElementById('localisation').removeAttribute('required')
       } 
@@ -160,7 +258,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const input = document.getElementById('autocomplete');
     const resultsContainer = document.getElementById('results');
     const companyName = document.getElementById('company_name');
-    // const address = document.getElementById('address');
+    const suggested_introductory_priceInput = document.getElementById('suggested_introductory_price');
+    const proposed_monthly_priceInput = document.getElementById('proposed_monthly_price');
+
     // const name_of_representant = document.getElementById('name_of_representant');
     // const title_respresentant = document.getElementById('title_respresentant');
     // const redevance_month = document.getElementById('redevance_month');
@@ -183,7 +283,7 @@ document.addEventListener("DOMContentLoaded", function() {
           if (results.length > 0) {
               resultsContainer.innerHTML = results.map(item => `
                   <li class="p-2 cursor-pointer hover:bg-gray-200 search-color-box" 
-                  onclick="selectResult('${item.business_name}')">${item.business_name}</li>
+                  onclick="selectResult('${item.business_name}', '${item.suggested_introductory_price}', '${item.proposed_monthly_price}')">${item.business_name}</li>
               `).join('');
               resultsContainer.classList.remove('hidden'); // Montrer la liste déroulante
           } else {
@@ -195,9 +295,26 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Fonction pour sélectionner un résultat et le mettre dans l'input
-    window.selectResult = function (company_name) {
+    window.selectResult = function (company_name, suggested_introductory_price, proposed_monthly_price) {
       // const Date = new Date('2024-09-10')
         input.value = company_name;
+        suggested_introductory_priceInput.value = Number(suggested_introductory_price) > 0 ? Number(suggested_introductory_price): ''
+        proposed_monthly_priceInput.value = Number(proposed_monthly_price) > 0 ? Number(proposed_monthly_price): ''
+
+        if (Number(suggested_introductory_price) > 0) {
+          suggested_introductory_priceInput.disabled = true
+        }
+        else {
+          suggested_introductory_priceInput.disabled = false
+        }
+
+        if (Number(proposed_monthly_price) > 0) {
+          proposed_monthly_priceInput.disabled = true
+        }
+        else {
+          proposed_monthly_priceInput.disabled = false
+        }
+
         // companyName.value = company_name;
         // address.value = district;
         // name_of_representant.value = `${first_name} ${last_name}`;

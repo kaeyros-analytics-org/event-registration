@@ -26,7 +26,7 @@ const SalesVisitSchema = new Schema<SalesVisitDoc>(
     },
     business_name: {
       type: String,
-      required: true,
+      required: false,
     },
     prospecting_type: {
       type: String,
@@ -34,7 +34,7 @@ const SalesVisitSchema = new Schema<SalesVisitDoc>(
     },
     customer_decision: {
       type: String,
-      required: true,
+      required: false,
     },
     suggested_introductory_price: {
       type: Number,
@@ -46,12 +46,11 @@ const SalesVisitSchema = new Schema<SalesVisitDoc>(
     },
     contact: {
       type: String,
-      required: true,
+      required: false,
     },
     category: {
       type: String,
       required: true,
-      default: "",
     },
     type_of_business: {
       type: String,
@@ -59,7 +58,7 @@ const SalesVisitSchema = new Schema<SalesVisitDoc>(
     },
     customer_status: {
       type: String,
-      required: true,
+      required: false,
     },
     address: {
       type: String,
@@ -67,19 +66,19 @@ const SalesVisitSchema = new Schema<SalesVisitDoc>(
     },
     achievement: {
       type: String,
-      required: true,
+      required: false,
     },
     visit_objective: {
       type: String,
-      required: true,
+      required: false,
     },
     comment: {
       type: String,
-      required: true,
+      required: false,
     },
     visit_carried_out: {
       type: String,
-      required: true,
+      required: false,
     },
     longitude: {
       type: String,
