@@ -211,11 +211,31 @@
                   </div>
                  </div>
 
-                <input type="number" name="suggested_introductory_price" id="suggested_introductory_price" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg input-bg-color" placeholder="Prix de lancement proposé *" required>
+                 
+                 <input type="number" name="suggested_introductory_price" id="suggested_introductory_price" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg input-bg-color" placeholder="Prix de lancement proposé *" required>
+                 
+                 <input type="number" name="proposed_monthly_price" id="proposed_monthly_price" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg input-bg-color" placeholder="Prix mensuel proposé *" required>
+                 
+                 <div class="relative flex w-full items-center">
+                  <select name="achievement" id="achievement" class="custom-select  dark:bg-[#E6E8EB] dark:text-[#2B2E31] w-full py-3 md:py-3 px-4 rounded-lg input-bg-color appearance-none" required>
+                    <option disabled value="" selected hidden id="achievement_placeholder">Réalisation / résultat atteint par rapport à l'objectif fixé *</option>
+                    <option value="vente">Vente</option>
+                    <option value="pas de vente">Pas de vente</option>
+                    <option value="promesse">Promesse</option>
+                   </select>
+ 
+                   <!-- Flèche personnalisée placée à droite -->
+                   <div class="arrow-icon pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 dark:text-gray-800 text-gray-100"">
+                    <svg class="w-5 h-5 down-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                    <svg class="w-5 h-5 up-arrow hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                    </svg>
+                  </div>
+                 </div>
 
-                <input type="number" name="proposed_monthly_price" id="proposed_monthly_price" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg input-bg-color" placeholder="Prix mensuel proposé *" required>
-
-                <textarea name="achievement" id="achievement" rows="5" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg  input-bg-color" placeholder="Réalisation / résultat atteint par rapport à l'objectif fixé *" required></textarea>
+                <!-- <textarea name="achievement" id="achievement" rows="5" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg  input-bg-color" placeholder="Réalisation / résultat atteint par rapport à l'objectif fixé *" required></textarea> -->
 
                 <textarea name="comment" id="comment" rows="5" class="w-full dark:bg-[#E6E8EB] dark:placeholder:text-[#2B2E31] dark:text-[#2B2E31] py-3 md:py-3 px-4 rounded-lg input-bg-color" placeholder="Commentaire *" required></textarea>
 

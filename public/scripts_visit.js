@@ -18,9 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const visit_objective_placeholder = document.getElementById('visit_objective_placeholder');
 
     const customer_decision_placeholder = document.getElementById('customer_decision_placeholder');
+    // const promesse_placeholder = document.getElementById('promesse_placeholder');
 
+    // const promesse = document.getElementById('promesse');
     const customer_decision = document.getElementById('customer_decision');
     const achievement = document.getElementById('achievement');
+    const achievement_placeholder = document.getElementById('achievement_placeholder');
+
     const comment = document.getElementById('comment');
     const visit_carried_out = document.getElementById('visit_carried_out');
     const phone = document.getElementById('phone')
@@ -127,7 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
               business_name_autocomplete.placeholder =  business_name_autocomplete.placeholder.endsWith('*') ? business_name_autocomplete.placeholder : business_name_autocomplete.placeholder+"*"
               visit_objective_placeholder.textContent =  visit_objective_placeholder.textContent.endsWith('*') ? visit_objective_placeholder.textContent : visit_objective_placeholder.textContent+"*"
               customer_decision_placeholder.textContent =  customer_decision_placeholder.textContent.endsWith('*') ? customer_decision_placeholder.textContent : customer_decision_placeholder.textContent+"*"
-              achievement.placeholder =  achievement.placeholder.endsWith('*') ? achievement.placeholder : achievement.placeholder+"*"
+              achievement_placeholder.textContent =  achievement_placeholder.textContent.endsWith('*') ? achievement_placeholder.textContent : achievement_placeholder.textContent+"*"
+
+              // achievement.placeholder =  achievement.placeholder.endsWith('*') ? achievement.placeholder : achievement.placeholder+"*"
               comment.placeholder =  comment.placeholder.endsWith('*') ? comment.placeholder : comment.placeholder+"*"
               visit_carried_out.placeholder =  visit_carried_out.placeholder.endsWith('*') ? visit_carried_out.placeholder : visit_carried_out.placeholder+"*"
               phone.placeholder =  phone.placeholder.endsWith('*') ? phone.placeholder : phone.placeholder+"*"
@@ -177,6 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
         business_name_autocomplete.setAttribute('required', true);
         visit_objective.setAttribute('required', true);
         customer_decision.setAttribute('required', true);
+        // promesse.setAttribute('required', true);
         achievement.setAttribute('required', true);
         comment.setAttribute('required', true);
         visit_carried_out.setAttribute('required', true);
@@ -186,7 +193,9 @@ document.addEventListener('DOMContentLoaded', () => {
         business_name_autocomplete.placeholder =  business_name_autocomplete.placeholder.endsWith('*') ? business_name_autocomplete.placeholder : business_name_autocomplete.placeholder+"*"
         visit_objective_placeholder.textContent =  visit_objective_placeholder.textContent.endsWith('*') ? visit_objective_placeholder.textContent : visit_objective_placeholder.textContent+"*"
         customer_decision_placeholder.textContent =  customer_decision_placeholder.textContent.endsWith('*') ? customer_decision_placeholder.textContent : customer_decision_placeholder.textContent+"*"
-        achievement.placeholder =  achievement.placeholder.endsWith('*') ? achievement.placeholder : achievement.placeholder+"*"
+        achievement_placeholder.textContent =  achievement_placeholder.textContent.endsWith('*') ? achievement_placeholder.textContent : achievement_placeholder.textContent+"*"
+
+        // achievement.placeholder =  achievement.placeholder.endsWith('*') ? achievement.placeholder : achievement.placeholder+"*"
         comment.placeholder =  comment.placeholder.endsWith('*') ? comment.placeholder : comment.placeholder+"*"
         visit_carried_out.placeholder =  visit_carried_out.placeholder.endsWith('*') ? visit_carried_out.placeholder : visit_carried_out.placeholder+"*"
         phone.placeholder =  phone.placeholder.endsWith('*') ? phone.placeholder : phone.placeholder+"*"
@@ -206,6 +215,8 @@ document.addEventListener('DOMContentLoaded', () => {
           business_name_autocomplete.removeAttribute('required');
           visit_objective.removeAttribute('required');
           customer_decision.removeAttribute('required');
+          // promesse.removeAttribute('required');
+
           achievement.removeAttribute('required');
           comment.removeAttribute('required');
           visit_carried_out.removeAttribute('required');
@@ -217,7 +228,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
           visit_objective_placeholder.textContent =  visit_objective_placeholder.textContent.replace('*', '')
           customer_decision_placeholder.textContent =  customer_decision_placeholder.textContent.replace('*', '')
-          achievement.placeholder =  achievement.placeholder.replace('*', '')
+          achievement_placeholder.textContent =  achievement_placeholder.textContent.replace('*', '')
+
+          // achievement.placeholder =  achievement.placeholder.replace('*', '')
           comment.placeholder =  comment.placeholder.replace('*', '')
           visit_carried_out.placeholder =  visit_carried_out.placeholder.replace('*', '')
           phone.placeholder =  phone.placeholder.replace('*', '')
