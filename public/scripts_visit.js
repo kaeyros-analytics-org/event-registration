@@ -296,7 +296,7 @@ document.addEventListener("DOMContentLoaded", function() {
           if (results.length > 0) {
               resultsContainer.innerHTML = results.map(item => `
                   <li class="p-2 cursor-pointer hover:bg-gray-200 search-color-box" 
-                  onclick="selectResult('${item.business_name}', '${item.suggested_introductory_price}', '${item.proposed_monthly_price}')">${item.business_name}</li>
+                  onclick="selectResult(&quot;${item.business_name}&quot;, &quot;${item.suggested_introductory_price}&quot;, &quot;${item.proposed_monthly_price}&quot;)">${item.business_name}</li>
               `).join('');
               resultsContainer.classList.remove('hidden'); // Montrer la liste déroulante
           } else {
