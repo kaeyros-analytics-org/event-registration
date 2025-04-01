@@ -1,0 +1,12 @@
+name: sales_analytics
+title: sales_analytics
+username: kaeyros-analytics-dashboard
+account: kaeyros-analytics-dashboard
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 13801359
+bundleId: 9900984
+url: https://kaeyros-analytics-dashboard.shinyapps.io/sales_analytics/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

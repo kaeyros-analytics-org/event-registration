@@ -1,0 +1,136 @@
+---
+title: "Rapport sur les Données des Voitures"
+author: "Malik Mouaji"
+output:
+  pdf_document: default
+  #word_document: default
+params:
+  cyl: NULL
+---
+
+## Rapport sur les donnees recu par la app
+
+### Ce rapport présente les quelques statistique important sur les donnees fournis
+
+Le nombre total de voitures entre la periode du `r filterStates$date_start` 
+au `r filterStates$date_end` et pour la category `r filterStates$categorySelected` est de:
+
+
+
+
+Le diagramme suivant presente le nombre de voiture de caterory `r filterStates$categorySelected` qui entre par jour dans l'entreprise.
+```{r cars_plot, echo=FALSE}
+library(ggplot2)
+
+
+filtered_data <- mensuel_data%>%
+    filter(DATE >= ymd(filterStates$date_start) &
+             DATE <= ymd(filterStates$date_end)+1)%>%
+    filter(if (length(filterStates$categorySelected) != 0 && !"All" %in% filterStates$categorySelected)  `CAT`  %in% filterStates$categorySelected  else TRUE)%>%
+    filter(if (length(filterStates$accepteSelected) != 0 && !"All" %in% filterStates$accepteSelected)  ACCEPTE  %in% filterStates$accepteSelected  else TRUE)
+
+  
+# Agréger les données par date
+  vehicule_par_jour <- filtered_data %>%
+    group_by(DATE) %>%
+    summarise(nombre_vehicules = n())
+  # Créer le graphique en barres avec ggplot2
+ggplot(vehicule_par_jour, aes(x = DATE, y = nombre_vehicules)) +
+  geom_bar(stat = "identity", fill = "#002157", color = "black") +  # Couleur de remplissage et bordure
+  geom_text(aes(label = nombre_vehicules), vjust = -0.5) +  # Afficher les valeurs au-dessus des barres
+  labs(title = "", x = "Date", y = "Number of cars") +  # Titres des axes
+  theme_minimal() +  # Thème minimal
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotation des labels de l'axe x
+```
+
+La courbe suivante presente les PTTC de la caterory `r filterStates$categorySelected` qui entre par jour dans l'entreprise.
+
+
+```{r pttc_plot, echo=FALSE}
+ library(ggplot2)
+
+
+ filtered_data <- mensuel_data%>%
+     filter(DATE >= ymd(filterStates$date_start) &
+              DATE <= ymd(filterStates$date_end)+1)%>%
+     filter(if (length(filterStates$categorySelected) != 0 && !"All" %in% filterStates$categorySelected)  `CAT`  %in% filterStates$categorySelected  else TRUE)%>%
+     filter(if (length(filterStates$accepteSelected) != 0 && !"All" %in% filterStates$accepteSelected)  ACCEPTE  %in% filterStates$accepteSelected  else TRUE)
+
+
+ # Regrouper les données par date et calculer le total des PTTC
+   data_agg <- filtered_data %>%
+     group_by(DATE) %>%
+     summarise(Total_P_TTC = sum(PTTC))
+
+ # Créer le graphique avec ggplot2
+ ggplot(data_agg, aes(x = DATE, y = Total_P_TTC)) +
+   geom_line(color = "#002157") +  # Ligne
+   geom_point(color = "#002157", size = 3) +  # Marqueurs
+   geom_text(aes(label = Total_P_TTC), vjust = -0.5) +  # Afficher les valeurs au-dessus des points
+   labs(title = "", x = "Date", y = "Total amount (XAF)") +  # Titres des axes
+   theme_minimal() +  # Thème minimal
+   theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotation des labels de l'axe x
+```
+
+
+Le nombre total de voiture par category dans l'entreprise est donnee par la courbe suivante:
+
+
+```{r catgory_car_plot, echo=FALSE}
+ library(ggplot2)
+
+
+ filtered_data <- mensuel_data%>%
+     filter(DATE >= ymd(filterStates$date_start) &
+              DATE <= ymd(filterStates$date_end)+1)%>%
+     filter(if (length(filterStates$categorySelected) != 0 && !"All" %in% filterStates$categorySelected)  `CAT`  %in% filterStates$categorySelected  else TRUE)%>%
+     filter(if (length(filterStates$accepteSelected) != 0 && !"All" %in% filterStates$accepteSelected)  ACCEPTE  %in% filterStates$accepteSelected  else TRUE)
+
+
+ # Calculer le pourcentage de chaque catégorie
+  data_percentage <- filtered_data %>%
+    group_by(CAT) %>%
+    summarise(Total = n()) %>%
+    mutate(Pourcentage = round(Total / sum(Total) * 100, 2))
+  # Créer le graphique avec ggplot2
+# Créer le graphique en secteurs avec ggplot2
+ggplot(data_percentage, aes(x = "", y = Total, fill = CAT)) +
+  geom_bar(stat = "identity", width = 1) +  # Créer un graphique en barres
+  coord_polar("y") +  # Transformer en graphique en secteurs
+  geom_text(aes(label = Total), position = position_stack(vjust = 0.5)) +  # Ajouter les étiquettes
+  labs(title = "Distribution par Catégorie", fill = "Catégorie") +  # Titres
+  theme_minimal() +  # Thème minimal
+  theme(axis.title.x = element_blank(),  # Supprimer le titre de l'axe x
+        axis.title.y = element_blank(),  # Supprimer le titre de l'axe y
+        axis.text.x = element_blank())  # Supprimer les labels de l'axe x
+```
+
+
+Le montant total (PTTC) pour chaque category de voiture et par jour est donnee par la figure suivante
+
+
+```{r category_car_pttc_plot, echo=FALSE}
+ library(ggplot2)
+
+
+ filtered_data <- mensuel_data%>%
+     filter(DATE >= ymd(filterStates$date_start) &
+              DATE <= ymd(filterStates$date_end)+1)%>%
+     filter(if (length(filterStates$categorySelected) != 0 && !"All" %in% filterStates$categorySelected)  `CAT`  %in% filterStates$categorySelected  else TRUE)%>%
+     filter(if (length(filterStates$accepteSelected) != 0 && !"All" %in% filterStates$accepteSelected)  ACCEPTE  %in% filterStates$accepteSelected  else TRUE)
+
+
+ # Calculer le total PTTC par jour et par catégorie
+  data_summary <- filtered_data %>%
+    group_by(DATE, CAT) %>%
+    summarise(Total_P_TTC = sum(PTTC), .groups = 'drop')
+  
+  # Créer le graphique avec ggplot2
+ggplot(data_summary, aes(x = DATE, y = Total_P_TTC, color = CAT)) +
+  geom_line() +  # Ligne
+  geom_point(size = 3) +  # Marqueurs
+  labs(title = "", x = "Date", y = "Total PTTC (XAF)", color = "Category") +  # Titres des axes et légende
+  theme_minimal() +  # Thème minimal
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotation des labels de l'axe x
+```
+

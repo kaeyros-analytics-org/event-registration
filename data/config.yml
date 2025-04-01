@@ -1,0 +1,7 @@
+email:
+  user: "test@kaeyros-analytics.de"
+  pass: "@@Test$$"
+smtp:
+  host: "smtp.ionos.de"
+  port: 25
+  ssl: true

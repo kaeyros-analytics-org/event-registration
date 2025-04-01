@@ -1,0 +1,40 @@
+.cards_overview_list {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  gap: 2rem;
+  width: 91%;
+}
+
+.overview_card {
+  padding-top: 8px;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgb(213, 213, 213);
+  width: 100%;
+  display: flex;
+}
+
+.overview_card_header {
+    font-size: 0.5rem !important;
+    width: 100%;
+}
+
+.overview_card_header h2 {
+    font-size: 1.2rem !important;
+    font-weight: bold;
+    margin-top:5px;
+}
+
+.overview_card_content {
+  font-size: 35px;
+  float: right;
+  padding-top: 8px;
+}
+  
+.overview_card_title {
+  color: #C7A00B;
+  font-size: 15px;
+}

@@ -1,0 +1,44 @@
+name: CI/CD Pipeline Development - GTA Dashboard
+
+on:
+  push:
+    branches: ["gta_dashboard"]
+
+env:
+  FRONTEND_IMAGE_REPOSITORY: ghcr.io/kaeyros-analytics/dashbordgta-dev
+  MONGO_CONNECTION_STRING: ""
+  key: ""
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  ci:
+    name: Continuous Integration - Development - GTA Dashboard
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set Git Commit SHA as Tag
+        run: echo "IMAGE_TAG=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
+      - name: Login to GitHub Container Registry
+        run: |
+          echo "${{ secrets.TOKEN }}" | docker login ghcr.io -u "${{ secrets.USERNAME }}" --password-stdin
+
+      - name: Create .env File with Environment Variables
+        run: |
+          touch .env
+          echo 'MONGO_CONNECTION_STRING=""' >> .env
+          echo 'key=""' >> .env
+
+      - name: Build the Docker image for frontend
+        run: |
+          
+          docker build -t ${{ env.FRONTEND_IMAGE_REPOSITORY }}:${{ env.IMAGE_TAG }} .
+
+      - name: Push frontend image to GitHub Container Registry
+        run: |
+          docker push ${{ env.FRONTEND_IMAGE_REPOSITORY }}:${{ env.IMAGE_TAG }}

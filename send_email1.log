@@ -1,0 +1,19 @@
+Message d'avis :
+le package 'mailR' a été compilé avec la version R 4.4.2 
+
+Attachement du package : 'dplyr'
+
+Les objets suivants sont masqués depuis 'package:stats':
+
+    filter, lag
+
+Les objets suivants sont masqués depuis 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Erreur dans gzfile(file, "rb") : impossible d'ouvrir la connexion
+Appels : readRDS -> gzfile
+De plus : Message d'avis :
+Dans gzfile(file, "rb") :
+  impossible d'ouvrir le fichier compressé './data/shared_data.rds', cause probable : 'No such file or directory'
+Exécution arrêtée

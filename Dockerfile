@@ -1,30 +1,32 @@
+# Base R Shiny image
+FROM rocker/shiny
 
-# Use Node 20.9.0-alpine as parent image
-FROM node:20.9.0-alpine AS BUILD_IMAGE
+# Installation de l'openjdk
+RUN apt-get update && apt-get install -y openjdk-8-jdk
 
-# Change the working directory on the Docker image to /app
+# Installation des dépendances R spécifiées
+RUN R -e "install.packages(c( \
+    'shiny', 'bs4Dash', 'shinyjs', 'shiny.fluent', 'reactable', 'dplyr', 'plotly', \
+    'lubridate', 'readxl', 'shinymanager', 'shinythemes','shiny.fluent', 'shiny.router', 'shinyjs', 'shinymanager', 'keyring', 'echarts4r', 'flextable', \
+    'officer', 'bslib', 'bsicons' \
+  ))"
+
+# Make a directory in the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json to the /app directory
-COPY package.json ./
+# Copy your files into the container....S
+COPY . /app 
 
-# RUN npm install -g npm@10.4.0
+RUN rm -rf /app/renv /app/renv.lock
 
-# Install dependencies
-RUN npm install
+# Installation de libglpk40 et libsecret-1-0
+RUN apt-get update && apt-get install -y libglpk40 libsecret-1-0
 
-# RUN npm install -g typescript
+# Installation des dépendances système pour les packages R
+RUN apt-get update && apt-get install -y libudunits2-dev libproj-dev libgdal-dev libgeos-dev libgsl-dev
 
-# Copy the rest of project files into this image
-COPY . .
+# Expose the application port
+EXPOSE 8180
 
-
-
-# Build the project
-RUN npm run build
-
-# Expose application port
-EXPOSE 3000
-
-# Start the application
-CMD ["npm", "start"]
+# Run the R Shiny app
+CMD ["R", "-e", "Sys.setenv(RENV_AUTO_LOADER_ENABLED = FALSE); shiny::runApp('/app', host = '0.0.0.0', port = 8180)"]
