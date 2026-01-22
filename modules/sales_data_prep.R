@@ -91,7 +91,6 @@ df <- data %>%
 # library(bsicons)
 # library(openxlsx)
 # 
-# connection_string <- "mongodb+srv://info:NY8tQ2OLZwdGqu7I@event-registration.1adqzcs.mongodb.net/?retryWrites=true&w=majority&appName=event-registration"
 # fetch_mongodb <- function(connection_string, collection, db) {
 #   reports <- tryCatch({
 #     mongo(collection = collection, db = db, url = connection_string)
